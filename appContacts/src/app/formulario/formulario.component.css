@@ -1,0 +1,19 @@
+.container{
+    border: solid;
+    border-color: red;
+}
+
+
+.containerphoto{
+    margin-left: 40%;
+}
+
+.photo{
+    position: relative;
+    width: 250px;
+    height: 250px;
+}
+
+img{
+    border-radius: 50%;
+}
