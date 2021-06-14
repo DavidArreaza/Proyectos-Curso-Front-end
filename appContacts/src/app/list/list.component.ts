@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 type Contacts = {
   name: string;
-  numer: number;
+  number: string;
   save: string;
   grupo: string;
 };
@@ -16,7 +16,7 @@ type Contacts = {
 
 
 export class ListComponent implements OnInit {
-  @Input() contact: Contacts;
+  @Input() contact: Contacts = { name : "", number : "", save : "", grupo : "" };
 
   constructor() { }
 
