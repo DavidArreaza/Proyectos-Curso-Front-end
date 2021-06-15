@@ -7,10 +7,14 @@
 
 
 <ul class="containerlist">
-    <label class="contact" >
-        Nombre: {{contact.name}}
-        Número: {{contact.number}}
-        Guardado: {{contact.save}}
-        Grupo: {{contact.grupo}}
+    <label class="contact"> <!-- ngModel para coger el nombre del contacto-->
+      <!-- Esto se puede mejorar -->
+      Nombre: {{contact.name}}
+      Número: {{contact.number}}
+      Guardado: {{contact.save}}
+      Grupo: {{contact.grupo}}
+      
+      <input [(ngModel)]="nombre" (click)="getNombre()" type="checkbox" class="custom-control-input" id="customCheck">
+
     </label>
 </ul>

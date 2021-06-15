@@ -6,7 +6,10 @@ type Contacts = {
   number: string;
   save: string;
   grupo: string;
+  selectDelete: false
 };
+
+type Nombre = string;
 
 @Component({
   selector: 'formulario',
@@ -15,9 +18,11 @@ type Contacts = {
 })
 export class FormularioComponent implements OnInit {
 
-  @Input() contact: Contacts = { name : "", number : "", save : "", grupo : "" }; /* Creo el Input para recibir información del padre (app.component) */
-  @Output() propagar = new EventEmitter<string>(); /*Creo el Output para enviar al padre (app.component) */
+  @Input() contact: Contacts = { name : "", number : "", save : "", grupo : "", selectDelete: false }; /* Creo el Input para recibir información del padre (app.component) */
+  @Output() propagar = new EventEmitter<object>(); /*Creo el Output para enviar al padre (app.component) */
 
+
+  @Input() nombreContanto : Nombre = '';
   constructor() { }
 
   ngOnInit(): void {
@@ -25,10 +30,19 @@ export class FormularioComponent implements OnInit {
 
   /**
    * Método que envia al padre la información
+   * para añadir a la lista
    */
-  enviarPadre() {
-    alert("ENTRO HIJO" + this.contact.name);
-    this.propagar.emit(this.contact.name);
+  add() {
+    this.propagar.emit(this.contact);
+  }
+
+  /**
+   * Método que envia al padre la información
+   * para eliminar de la lista
+   */
+  sendDelete(){
+    //this.propagar.emit();
+    alert(this.nombreContanto);
   }
 
 

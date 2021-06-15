@@ -3,11 +3,11 @@
   <navbar></navbar>
 
   <div class="containerform">
-    <formulario (propagar)="reciboHijo($event)"></formulario> <!--Añado el método donde recibe el evento-->
+    <formulario (propagar)="add($event)"></formulario> <!--Añado el método donde recibe el evento-->
   </div>
 
   <div class="containerlist">
-    <list [contact]="contacto" *ngFor="let contacto of contacts" ></list>
+    <list [contact]="contacto" *ngFor="let contacto of contacts" (propagar)="reciboLista($event)" ></list>
   </div>
  
 

@@ -1,37 +1,46 @@
 <div class="container">
+  
     <form action="/action_page.php">
+
+      <div class="column">
         <div class="containerphoto">
             <div class="photo">
                 <img src="https://i.imgur.com/lQmWiXN.jpg" style="width: 100%">
             </div>
         </div>
+      </div>
 
+      <div class="column">
         <div class="form-group">
           <label for="name">Name:</label>
-          <input class="form-control" [(ngModel)]="contact.name" placeholder="Enter name" id="name">
+          <input class="form-control" [(ngModel)]="contact.name" [ngModelOptions]="{standalone: true}" type="text" placeholder="Enter name">
         </div>
 
         <div class="form-group">
           <label for="number">Number:</label>
-          <input class="form-control" ngModel="contact.numero" placeholder="Enter number phone" id="numberphone">
+          <input class="form-control" [(ngModel)]="contact.number" [ngModelOptions]="{standalone: true}" placeholder="Enter number phone" id="numberphone">
         </div>
 
-        <select name="save" ngModel="contact.save">
+        <select name="save" [(ngModel)]="contact.save" [ngModelOptions]="{standalone: true}">
             <option selected>Save</option>
             <option value="sim">SIM</option>
             <option value="phone">Phone</option>
         </select>
 
-        <select name="grupo" ngModel="contact.grupo" class="custom-select">
-            <option selected>Group</option>
-            <option value="amigos">Amigos</option>
-            <option value="trabajo">Trabajo</option>
-            <option value="familia">Familia</option>
+        <select name="grupo" class="custom-select" [(ngModel)]="contact.grupo" [ngModelOptions]="{standalone: true}">
+            <option selected value="group">Group</option>
+            <option value="amigos">Friends</option>
+            <option value="trabajo">Coworkers</option>
+            <option value="familia">Family</option>
         </select>
         <!--Añado al botón el método que envia al padre -->
-        <button type="submit" (click)="enviarPadre()" class="btn btn-primary">Save</button>
+        <div class="botones">
+          <button class="btns" type="submit" (click)="add()" class="btn btn-outline-primary">Save</button>
+          <button class="btns" type="button" (click)="sendDelete()" class="btn btn-outline-danger">Delete</button>
+        </div>
 
-      </form>
+      </div>
+    </form>
 </div>
 
 
