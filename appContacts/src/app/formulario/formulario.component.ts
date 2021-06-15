@@ -15,14 +15,8 @@ type Contacts = {
 })
 export class FormularioComponent implements OnInit {
 
-  nombre = '';
-  numero = '';
-  sav = '';
-  grup = '';
-
-  @Input() contact: Contacts = { name : "", number : "", save : "", grupo : "" };
-  @Output() propagar = new EventEmitter<object>(); /*Creo el Output */
-  
+  @Input() contact: Contacts = { name : "", number : "", save : "", grupo : "" }; /* Creo el Input para recibir información del padre (app.component) */
+  @Output() propagar = new EventEmitter<string>(); /*Creo el Output para enviar al padre (app.component) */
 
   constructor() { }
 
@@ -33,8 +27,8 @@ export class FormularioComponent implements OnInit {
    * Método que envia al padre la información
    */
   enviarPadre() {
-    //alert("ENTRO HIJO")
-    this.propagar.emit(this.contact);
+    alert("ENTRO HIJO" + this.contact.name);
+    this.propagar.emit(this.contact.name);
   }
 
 
