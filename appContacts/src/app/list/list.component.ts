@@ -6,6 +6,7 @@ type Contacts = {
   number: string;
   save: string;
   grupo: string;
+  selectDelete: boolean;
 };
 
 
@@ -17,14 +18,13 @@ type Contacts = {
 
 
 export class ListComponent implements OnInit {
-  @Input() contact: Contacts = { name : "", number : "", save : "", grupo : ""};
-  @Output() propagar = new EventEmitter<string>();
+  @Input() contact: Contacts = { name : "", number : "", save : "", grupo : "", selectDelete: false};
+  //@Input() contact: Contacts[] = [];
+  @Output() selecionarDelete = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void { }
-
-  selectDeleteTrue(){}
 
   nombre = '';
 
@@ -33,7 +33,8 @@ export class ListComponent implements OnInit {
    */
   getNombre(){
     alert('Envio ' + this.nombre); //Nombre a enviar
-    this.propagar.emit(this.nombre);
+    this.contact.selectDelete = true; //Lo pongo a true seleccionado
+    this.selecionarDelete.emit(this.nombre);
   }
 
 }

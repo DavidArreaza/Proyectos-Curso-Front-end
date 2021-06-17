@@ -45,5 +45,6 @@ export class FormularioComponent implements OnInit {
     alert(this.nombreContanto);
   }
 
+  //this.variable.filter(variableNueva => varibale.name != name); //para elimar
 
 }
