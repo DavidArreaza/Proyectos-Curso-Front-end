@@ -20,7 +20,7 @@ type Contacts = {
 export class ListComponent implements OnInit {
   @Input() contact: Contacts = { name : "", number : "", save : "", grupo : "", selectDelete: false};
   //@Input() contact: Contacts[] = [];
-  @Output() selecionarDelete = new EventEmitter<string>();
+  @Output() mandarNombreBorrar = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -32,9 +32,8 @@ export class ListComponent implements OnInit {
    * Coge el nombre y lo envia
    */
   getNombre(){
-    alert('Envio ' + this.nombre); //Nombre a enviar
     this.contact.selectDelete = true; //Lo pongo a true seleccionado
-    this.selecionarDelete.emit(this.nombre);
+    this.mandarNombreBorrar.emit(this.contact.selectDelete);
   }
 
 }

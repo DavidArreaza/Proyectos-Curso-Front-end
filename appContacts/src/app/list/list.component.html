@@ -10,6 +10,9 @@
     <label class="contact"> <!-- ngModel para coger el nombre del contacto-->
       <!-- Esto se puede mejorar -->
       Nombre: {{contact.name}}
+      Número: {{contact.number}}
+      Grupo: {{contact.grupo}}
+      selecionado: {{contact.selectDelete}}
       
       <input [(ngModel)]="nombre" (click)="getNombre()" type="checkbox" class="custom-control-input" id="customCheck">
 

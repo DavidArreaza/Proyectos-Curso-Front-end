@@ -25,9 +25,8 @@ export class AppComponent {
     this.contacts.push(contact);
   }
 
-  reciboLista(nombre: string){
-    alert("Recibo: " + nombre);
-    this.nombreContacto = nombre;
+  deleteOneContact(seleccionado: boolean){
+    this.contacts = this.contacts.filter(c => c.selectDelete != seleccionado);
   }
 
 }

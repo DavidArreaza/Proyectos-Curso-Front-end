@@ -7,7 +7,7 @@
   </div>
 
   <div class="containerlist">
-    <list [contact]="contactoF" *ngFor="let contactoF of contacts" (selecionarDelete)="reciboLista($event)" ></list>
+    <list [contact]="contactoF" *ngFor="let contactoF of contacts" (mandarNombreBorrar)="deleteOneContact($event)" ></list>
   </div>
  
 
