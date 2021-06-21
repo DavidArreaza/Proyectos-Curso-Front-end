@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { MenulateralComponent } from './menulateral/menulateral.component';
+import { ContentmainComponent } from './contentmain/contentmain.component';
+
+const routes: Routes = [
+  {path: 'sidebar', component: MenulateralComponent},
+  {path: '', component: ContentmainComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
