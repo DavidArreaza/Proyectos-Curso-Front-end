@@ -1,20 +1,22 @@
 .sidebar {
   height: 100%;
-  width: 250px;
+  width: 80px;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: rgb(49, 49, 49);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
 }
 
 .sidebar a {
-  padding: 8px 8px 8px 32px;
+  /*padding: 8px 8px 8px 32px;*/
+  padding: 8px;
   text-decoration: none;
-  font-size: 25px;
+  text-align: center;
+  font-size: 15px;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -54,4 +56,15 @@
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
+}
+
+.sidebar img {
+  height: 50px;
+  width: 50px;
+  margin: auto;
+  /*padding: 8px 8px 8px 32px;*/
+  text-decoration: none;
+  /*color: #818181;*/
+  display: block;
+  transition: 0.3s;
 }

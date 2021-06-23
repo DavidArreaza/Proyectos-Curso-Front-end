@@ -1,5 +1,14 @@
-.container{
-    border: solid;
-    border-color: red;
-    margin: 25px;
+img{
+    border: none;
+    border-radius: 5px;
 }
+
+#card{
+    margin-top: 20px;
+    /*border: solid 0.5px;;
+    border-radius: 10px;*/
+}
+
+/*.card-body{
+    border: solid;
+}*/
