@@ -1,23 +1,25 @@
 .navbar {
-  background-color: rgb(49, 49, 49);
+  background-color: rgb(255, 208, 0);
 }
 
 .btn {
-  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .container {
   text-align: center;
 }
 
-span {
-  text-decoration: underline;
-  color: linear-gradient(
-    to right,
-    rgb(255, 5, 5),
-    rgb(214, 100, 6),
-    rgb(255, 230, 0),
-    rgb(102, 255, 0),
-  );
+.titulo{
+  margin: auto;
 }
+
+.navbar-brand:hover{
+  cursor: pointer;
+}
+
+.menulateral{
+  transition-property : margin-left .5s;
+}
+
 

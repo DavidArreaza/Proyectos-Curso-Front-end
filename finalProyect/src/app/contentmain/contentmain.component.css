@@ -9,6 +9,13 @@ img{
     border-radius: 10px;*/
 }
 
+#card:hover{
+    cursor: pointer;
+}
+
 /*.card-body{
     border: solid;
 }*/
+.buscador{
+    margin-top: 10px;
+}

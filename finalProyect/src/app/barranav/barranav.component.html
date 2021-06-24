@@ -1,8 +1,13 @@
 
 <nav class="navbar navbar-expand-sm justify-content-between">
   <div class="container-fluid">
-    <!--<button class="btn btn-outline-dark" routerLink="/sidebar">☰</button> -->
-    <span id="titulo" class="navbar-brand" href="#">TableGames</span>
+    <button class="btn btn-outline-dark" (click)="esPulsado()">☰</button>
+    <div class="menulateral" *ngIf="pulsado == true">
+      <menulateral></menulateral>
+    </div>
+    <div class="titulo">
+      <span id="titulo" class="navbar-brand" routerLink="">TABLEGAMES</span>
+    </div>
       
     <!-- Links -->
     <ul class="navbar-nav ">
@@ -11,8 +16,8 @@
       </li>-->
 
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-me-2" type="search" placeholder="Buscar">
-        <button class="btn btn-outline-success">Buscar</button>
+        <button class="btn btn-success" routerLink="/login">Acceder</button>
+        <a routerLink="/signin">Registrarme</a>
       </form>
 
     </ul>
