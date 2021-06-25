@@ -26,7 +26,7 @@
         <label for="validationDefault04" class="form-label">State</label>
         <select class="form-control" id="validationDefault04" required>
           <option selected disabled value="">Choose...</option>
-          <option>...</option>
+          <option *ngFor="let ciudad of Ciudades" value={{ciudad.id}}>{{ciudad.nm}}</option>
         </select>
       </div>
     <div class="col-12">

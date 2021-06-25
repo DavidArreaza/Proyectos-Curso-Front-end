@@ -8,7 +8,8 @@ import { MenulateralComponent } from './menulateral/menulateral.component';
 import { ContentmainComponent } from './contentmain/contentmain.component';
 import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
-import { DetailsComponent } from './details/details.component';
+import { DetallesComponent } from './detalles/detalles.component';
+//import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DetailsComponent } from './details/details.component';
     ContentmainComponent,
     LoginComponent,
     SigninComponent,
-    DetailsComponent
+    DetallesComponent,
+    //DetailsComponent
   ],
   imports: [
     BrowserModule,

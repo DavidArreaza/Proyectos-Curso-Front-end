@@ -5,14 +5,14 @@ import { MenulateralComponent } from './menulateral/menulateral.component';
 import { ContentmainComponent } from './contentmain/contentmain.component';
 import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
-import { DetailsComponent } from './details/details.component';
+import { DetallesComponent } from './detalles/detalles.component';
 
 const routes: Routes = [
   {path: '', component: ContentmainComponent},
   //{path: 'sidebar', component: MenulateralComponent}
   {path: 'login', component: LoginComponent},
   {path: 'signin', component: SigninComponent},
-  {path: 'details', component: DetailsComponent}
+  {path: 'detalles', component: DetallesComponent}
 ];
 
 @NgModule({

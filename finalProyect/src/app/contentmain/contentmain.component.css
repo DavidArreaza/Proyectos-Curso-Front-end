@@ -3,6 +3,12 @@ img{
     border-radius: 5px;
 }
 
+.container{
+    
+    border: solid;
+    align-items: center;
+}
+
 #card{
     margin-top: 20px;
     /*border: solid 0.5px;;
