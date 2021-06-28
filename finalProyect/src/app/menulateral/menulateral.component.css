@@ -5,7 +5,7 @@
   z-index: 1;
   margin-top: 60px;
   /*top: 0;*/
-  left: 0;
+  left: 10px;
   background-color:  rgb(255, 221, 68);
   overflow-x: hidden;
   padding-top: 40px;
@@ -30,13 +30,13 @@
   text-decoration: underline;
 }
 
-.sidebar .closebtn {
+/*.sidebar .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
-}
+}*/
 
 .openbtn {
   font-size: 20px;
