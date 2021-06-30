@@ -1,0 +1,90 @@
+@import '../styles';
+
+.head {
+    text-align: center;
+    img {
+        width: 150px;
+        height: 130px;
+        border-radius: 50%;
+        box-shadow: $shadow;
+        margin-top: 62px;
+    }
+    h1 {
+        font-weight: bold;
+        font-size: 34px;
+        margin-top: 16px;
+    }
+    p {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+}
+
+.link-item {
+    box-shadow: $shadow;
+    padding: 10px;
+    margin: 15px 30px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    fa-icon {
+        font-size: 60px;
+        color: $black;
+    }
+    p {
+        margin-bottom: 0px;
+        color: $black;
+    }
+    .item-left {
+        width: 30%;
+        display: inline-block;
+    }
+    .item-right {
+        text-align: left;
+        width: 70%;
+        padding: 0 10px;
+        display: inline-block;
+    }
+    &:hover {
+        border-left: 10px solid grey;
+        border-radius: 5px;
+        text-decoration: underline grey;
+        transition: 0.2s;
+    }
+}
+
+.btn-mode {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: 0px;
+    border-radius: 25px;
+    padding: 10px 30px;
+    fa-icon {
+        font-size: 20px;
+    }
+}
+
+.head.dark {
+    color: white;
+    img {
+        box-shadow: $shadowDark;
+    }
+    .link-item {
+        box-shadow: $shadowDark;
+        fa-icon {
+            color: white;
+        }
+        p {
+            color: white;
+        }&:hover {
+            border-left: 10px solid rgb(255, 76, 76);
+            border-radius: 5px;
+            text-decoration: underline rgb(255, 76, 76);
+            transition: 0.2s;
+        }
+    }
+}
+
+// ::ng-deep body.dark {
+//     background-color: black;
+// }
