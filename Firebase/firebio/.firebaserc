@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "firebio-88c1e": {
+      "hosting": {
+        "firebio": [
+          "firebio-88c1e"
+        ]
+      }
+    }
+  }
+}

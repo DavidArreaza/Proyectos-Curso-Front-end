@@ -1,6 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { faGithub, faTwitter, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faMoon, faSun, faIdCard } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +32,11 @@ export class AppComponent implements OnInit {
         link: "https://www.linkedin.com",
         title: "Mi LinkedIn",
         icon: faLinkedin
+      },
+      {
+        link: "https://www.google.com",
+        title: "Portfolio",
+        icon: faIdCard
       }
     ]
   }
