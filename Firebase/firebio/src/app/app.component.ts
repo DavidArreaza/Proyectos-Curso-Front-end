@@ -14,14 +14,17 @@ export class AppComponent {
   users : Observable<any[]>;
   misPosts : Array<Post> = [];
 
+  isLoading = false;
+
   constructor(firestore: AngularFirestore, private crudPost : CrudService){
     this.users = firestore.collection('users').valueChanges();
 
     this.readAllPosts();
-    this.loadOnePost();
+    //this.loadOnePost();
   }
 
   createPost(){
+    this.isLoading = true;
     const publicacion : Post = {
       author : 'ROK3FYIZGLmZ3fFMuNPD',
       content : 'Loren ipsum....',
@@ -31,14 +34,18 @@ export class AppComponent {
 
     this.crudPost.newPost(publicacion).then( success => {
       console.log("OK!");
+      this.readAllPosts();
     }).catch(error => {
       console.error("No se ha creado");
     })
-
+    
   }
 
   readAllPosts(){
+
     this.crudPost.readAllPost().subscribe(data => {
+
+      this.misPosts = [];
 
       data.forEach((doc : any) => {
         let myPost : Post = doc.data();
@@ -47,6 +54,7 @@ export class AppComponent {
         this.misPosts.push(myPost);
       })
     })
+    this.isLoading = false;
   }
 
   loadOnePost(){
@@ -72,8 +80,9 @@ export class AppComponent {
 
   }
 
-  deletePost(){
-    this.crudPost.deletePost("ROK3FYIZGLmZ3fFMuNPD");
+  deletePost(id: any){
+    this.crudPost.deletePost(id);
+    this.readAllPosts();
   }
 
 }
