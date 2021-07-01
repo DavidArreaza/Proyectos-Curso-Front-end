@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row">
+
     <div class="col-4">
       <ul class="list-group mt-4">
         <ul>
@@ -8,6 +9,27 @@
           </li>
         </ul>
       </ul>
+    </div>
+
+    <div class="col-8">
+      <ul class="list-group mt-4">
+        <ul>
+          <li class="list-group-item" *ngFor="let post of misPosts">
+            {{post.id}} - {{post.title}}
+          </li>
+        </ul>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-primary" (click)="createPost()">Crear post</button>
+      <button type="button" class="btn btn-warning" (click)="updatePost()">Update</button>
+      <button type="button" class="btn btn-danger" (click)="deletePost()">Delete</button>
     </div>
   </div>
 </div>
