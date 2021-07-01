@@ -10,7 +10,7 @@ import { CrudService } from './shared/services/crud.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'firebio';
+  title = 'Demo Firebase';
   users : Observable<any[]>;
   misPosts : Array<Post> = [];
 
