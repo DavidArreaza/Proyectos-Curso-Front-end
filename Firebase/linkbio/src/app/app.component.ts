@@ -9,10 +9,10 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'linkbio';
-  items: Observable<any[]>;
+  //items: Observable<any[]>;
   
   constructor(firestore: AngularFirestore) {
-    this.items = firestore.collection('users').valueChanges();
+    
   }
 
 }
