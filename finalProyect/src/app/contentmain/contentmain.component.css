@@ -17,14 +17,21 @@ img{
 }
 
 .text{
-    position: absolute;
-    margin-top: 55px;
-    margin-left: 600px;
+    /*position: absolute;*/
+    /*margin-top: 55px;
+    margin-left: 500px;*/
     font-size: 45px;
     font-weight: bold;
-    text-decoration: underline;
+    color: white;
 }
 
+.row{
+    border: solid red;
+}
+
+.col-6{
+    border: solid;
+}
 
 .cont{
     position: relative;

@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from './shared/services/auth.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AddContactComponent } from './add-contact/add-contact.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NavbarComponent,
     LoginComponent,
     SingupComponent,
-    HomeComponent
+    HomeComponent,
+    AddContactComponent
   ],
   imports: [
     BrowserModule,
