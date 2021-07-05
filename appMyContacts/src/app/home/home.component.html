@@ -15,7 +15,7 @@
               <span class="d-none d-sm-inline mx-1">{{user.displayName}}</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-              <li><a class="dropdown-item" href="#">Añadir contacto</a></li>
+              <li><a class="dropdown-item" routerLink='/add'>Añadir contacto</a></li>
               <li><a class="dropdown-item" href="#">Editar Perfil</a></li>
               <li>
                 <hr class="dropdown-divider" />
@@ -34,7 +34,7 @@
           <li>
             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                 <fa-icon [icon]="faUserPlus"></fa-icon>
-              <span class="ms-1 d-none d-sm-inline">Añadir contacto</span>
+              <span class="ms-1 d-none d-sm-inline" routerLink='/add'>Añadir contacto</span>
             </a>
             <!-- Submenu
             <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
