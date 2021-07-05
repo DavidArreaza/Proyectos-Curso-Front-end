@@ -1,2 +1,37 @@
+<!--Head-->
+
+<div class="container mt-4">
+
+  <!--Boton crear bio-->
+  <div class="row justify-content-center">
+    <div class="col-md-7 col-xl-5 text-end">
+      <button routerLink="/create-bio" type="button" class="btn btn-primary btn-lg">Crear minibio</button>
+    </div>
+  </div>
+
+  <!--Contenido-->
+  <div class="row justify-content-center">
+    <div class="col-md-7 col-xl-5 text-start card">
+      <div class="d-flex bd-highlight">
+        <div class="p-2 flex-grow-1 bd-highlight"><p>Lo que sea</p></div>
+
+        <div class="p-2 bd-highlight">
+          <button class="btn btn-primary">Visitar</button>
+          <button class="btn btn-secondary dropdown-toggle doc" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false" ></button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li><button class="dropdown-item" type="button">Editar</button></li>
+            <li><button class="dropdown-item" type="button">Eliminar</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio reprehenderit sint deserunt modi id quaerat quidem culpa, saepe itaque quia sapiente vitae cupiditate nisi libero amet iste. Odit, ipsum quas!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
 <p>El usuario logueado es: {{user.displayName}} </p>
 <button (click)="logOut()" class="btn btn-danger">Cerrar Sesión</button>
+-->

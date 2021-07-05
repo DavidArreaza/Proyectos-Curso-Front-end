@@ -12,13 +12,17 @@ import { AuthService } from './shared/services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CreateBioComponent } from './create-bio/create-bio.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotifierModule } from 'angular-notifier';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ProfileComponent,
-    CreateBioComponent
+    CreateBioComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,10 @@ import { CreateBioComponent } from './create-bio/create-bio.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NotifierModule.withConfig()
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

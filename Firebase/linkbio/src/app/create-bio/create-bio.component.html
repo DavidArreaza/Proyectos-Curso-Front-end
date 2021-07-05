@@ -1,1 +1,53 @@
-<p>create-bio works!</p>
+<div class="row justify-content-center">
+  <div class="row justify-content-center">
+    <div class="col-md-7 col-xl-5">
+      <h3>Crea tu minibio</h3>
+
+      <div [formGroup]="bioForm" class="form-floating mt-4">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" formControlName="title" placeholder="NombreBio" />
+          <label for="floatingInput">Nombre bio</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" formControlName="description" placeholder="Descripcion" />
+          <label for="floatingInput">Descripción</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" formControlName="urlimg" placeholder="URL" />
+          <label for="floatingInput">URL imagen</label>
+        </div>
+
+        <p>Enlace 1</p>
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" formControlName="linktitle1" placeholder="name@example.com" />
+          <label for="floatingInput">Titulo enlace</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" formControlName="url1" placeholder="name@example.com" />
+          <label for="floatingInput">URL</label>
+        </div>
+
+        <p>Enlace 2</p>
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" formControlName="linktitle2" placeholder="name@example.com" />
+          <label for="floatingInput">Titulo enlace</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" formControlName="url2" placeholder="name@example.com" />
+          <label for="floatingInput">URL</label>
+        </div>
+
+      </div>
+      <button (click)="saveBio()" type="submit" class="btn btn-primary btn-lg btn-save">Guardar</button>
+      <a class="can" href="javascript:void(0)" routerLink="/profile">Cancelar</a>
+    </div>
+  </div>
+</div>
+
+<notifier-container></notifier-container>

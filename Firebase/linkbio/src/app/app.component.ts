@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,9 +11,17 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   title = 'linkbio';
   //items: Observable<any[]>;
-  
-  constructor(firestore: AngularFirestore) {
-    
+  showMenu = false;
+  constructor(firestore: AngularFirestore, private router: Router) {
+    router.events.subscribe(evento => {
+      if(evento instanceof NavigationEnd){
+        if(this.router.url == "/"){
+          this.showMenu = false;
+        }else{
+          this.showMenu = true;
+        }
+      }
+    })
   }
 
 }
