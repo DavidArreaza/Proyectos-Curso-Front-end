@@ -1,5 +1,5 @@
 <navbar></navbar>
-
+<!--
 <div class="container">
   
     <form action="/action_page.php">
@@ -35,14 +35,62 @@
             <option value="trabajo">Coworkers</option>
             <option value="familia">Family</option>
         </select>
-        <!--Añado al botón el método que envia al padre -->
+        Añado al botón el método que envia al padre 
         <div class="botones">
           <button class="btns" type="submit" class="btn btn-outline-primary">Save</button>
           <button class="btns" type="button" class="btn btn-outline-danger">Delete</button>
         </div>
-
       </div>
     </form>
-</div>
+</div>-->
 
+<div class="container">
+  <div class="row justify-content-center">
+
+      <div class="col-md-4 col-xl-4 justify-content-center pp">
+        <img src="{{urlimg}}">
+      </div>
+
+      <div class="col-md-8 col-xl-8">
+
+        <h3>Añade un contacto nuevo</h3>
+
+        <div [formGroup]="cForm" class="form-floating mt-4"> 
+          
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInputNombre" formControlName="nombre" placeholder="NombreBio" />
+            <label for="floatingInputNombre">Nombre</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="floatingInputNumero" formControlName="numero" placeholder="numero" />
+            <label for="floatingInputNumero">Número</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInputUrl" formControlName="img" placeholder="URL" />
+            <label for="floatingInputUrl">URL imagen</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInputEmail" formControlName="email" placeholder="name@example.com" />
+            <label for="floatingInputEmail">Email</label>
+          </div>
+
+          <div class="input-group mb-3">
+            <select class="form-select-sm" aria-label="Default select example" formControlName="grupo">
+              <option selected>Grupo</option>
+              <option value="amigos">Amigos</option>
+              <option value="familia">Familia</option>
+              <option value="trabajo">Trabajo</option>
+              <option value="otros">Otros</option>
+            </select>
+          </div>
+
+        </div>
+        <button (click)="crearContact()" type="submit" class="btn btn-primary">Guardar</button>
+        <button routerLink="/home" type="submit" class="btn btn-danger">Cancelar</button>
+      </div>
+  </div>
+</div>
 

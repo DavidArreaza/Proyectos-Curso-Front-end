@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/services/auth.service';
 import { faHome, faUserPlus, faSortAmountUpAlt, faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
 import { ifStmt } from '@angular/compiler/src/output/output_ast';
+import { CrudcontactService } from '../shared/services/crudcontact.service';
+import { Contact } from '../shared/models/contact';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +20,11 @@ export class HomeComponent implements OnInit {
   faBars = faBars;
   desplegado = true;
   addContact = false;
+  misContacts : Array<Contact> = [];
 
-  constructor(private authService : AuthService) { }
+  constructor(private authService : AuthService, private serviceContacts : CrudcontactService) { 
+    this.loadAllContacts();
+  }
 
   ngOnInit(): void {
     this.user = this.authService.userData();
@@ -48,5 +53,21 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  buscarContact(event : any){
+
+  }
+
+  loadAllContacts(){
+    this.serviceContacts.readAllPost().subscribe(data =>{
+      this.misContacts = [];
+      data.forEach((doc : any) =>{
+        let myContact : Contact = doc.data();
+        myContact.id = doc.id;
+        console.log(myContact)
+        this.misContacts.push(myContact);
+      })
+    })
+    console.log(this.misContacts)
+  }
 
 }

@@ -15,6 +15,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from './shared/services/auth.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddContactComponent } from './add-contact/add-contact.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotifierModule } from 'angular-notifier';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,10 @@ import { AddContactComponent } from './add-contact/add-contact.component';
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NotifierModule.withConfig()
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
