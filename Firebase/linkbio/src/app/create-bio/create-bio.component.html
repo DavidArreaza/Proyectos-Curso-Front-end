@@ -1,7 +1,9 @@
-<div class="row justify-content-center">
+
+<div class="row justify-content-center fondo">
   <div class="row justify-content-center">
     <div class="col-md-7 col-xl-5">
-      <h3>Crea tu minibio</h3>
+      <h3 *ngIf="!isEdit">Crea tu minibio</h3>
+      <h3 *ngIf="isEdit">Edita tu minibio</h3>
 
       <div [formGroup]="bioForm" class="form-floating mt-4">
         <div class="form-floating mb-3">
@@ -15,7 +17,7 @@
         </div>
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" formControlName="urlimg" placeholder="URL" />
+          <input type="text" class="form-control" id="floatingInput" formControlName="image" placeholder="URL" />
           <label for="floatingInput">URL imagen</label>
         </div>
 
@@ -27,7 +29,7 @@
         </div>
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" formControlName="url1" placeholder="name@example.com" />
+          <input type="text" class="form-control" id="floatingInput" formControlName="link1" placeholder="name@example.com" />
           <label for="floatingInput">URL</label>
         </div>
 
@@ -39,15 +41,18 @@
         </div>
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" formControlName="url2" placeholder="name@example.com" />
+          <input type="text" class="form-control" id="floatingInput" formControlName="link2" placeholder="name@example.com" />
           <label for="floatingInput">URL</label>
         </div>
 
       </div>
-      <button (click)="saveBio()" type="submit" class="btn btn-primary btn-lg btn-save">Guardar</button>
-      <a class="can" href="javascript:void(0)" routerLink="/profile">Cancelar</a>
+      <!--<button (click)="saveBio()" type="submit" class="btn btn-primary btn-lg btn-save">Guardar</button>-->
+      <button *ngIf="!isEdit" (click)="saveBio()" type="submit" class="btn-lg raise">Guardar</button>
+      <button *ngIf="isEdit" (click)="updateBio()" type="submit" class="btn-lg raise">Actualizar</button>
+      <a class="cancelar" href="javascript:void(0)" routerLink="/profile">Cancelar</a>
     </div>
   </div>
 </div>
+
 
 <notifier-container></notifier-container>

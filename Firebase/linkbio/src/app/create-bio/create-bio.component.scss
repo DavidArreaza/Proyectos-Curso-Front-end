@@ -1,8 +1,8 @@
-p{
+p {
     text-decoration: underline;
 }
 
-.btn-save{
+/*.btn-save {
     width: 100%;
     background-color: brown;
     color: #fff;
@@ -11,4 +11,43 @@ p{
     padding: 14px;
     margin: 10px 0;
     border: 0px;
+}*/
+
+button {
+    /*color: var(--color);*/
+    color: white;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
 }
+button:hover,
+button:focus {
+    background-color: grey;
+    border-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+button {
+    width: 100%;
+    background: none;
+    border: 2px solid;
+    border-radius: 40px;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
+}
+
+.raise {
+    background-color: brown;
+    --color: brown;
+    --hover: grey;
+}
+
+.raise:hover,
+.raise:focus {
+    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+    -webkit-transform: translateY(-0.25em);
+    transform: translateY(-0.25em);
+}
+

@@ -15,6 +15,8 @@ import { CreateBioComponent } from './create-bio/create-bio.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotifierModule } from 'angular-notifier';
+import { InfoComponent } from './info/info.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { NotifierModule } from 'angular-notifier';
     HomeComponent,
     ProfileComponent,
     CreateBioComponent,
-    MenuComponent
+    MenuComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { NotifierModule } from 'angular-notifier';
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
-    NotifierModule.withConfig()
+    NotifierModule.withConfig(),
+    FontAwesomeModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

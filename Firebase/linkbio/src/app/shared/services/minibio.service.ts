@@ -15,4 +15,29 @@ export class MinibioService {
     return this.fireStore.collection('users').doc(uid).collection('minibios').add(data);
   }
 
+  readAllBios(){
+    /*return this.fireStore.collection('minibios').get();*/
+    const uid = this.authService.userData().uid;
+    return this.fireStore.collection('users').doc(uid).collection('minibios').get()
+  }
+
+  deleteMinibio(idBio:string){
+    const uid = this.authService.userData().uid;
+    return this.fireStore.collection('users').doc(uid).collection('minibios').doc(idBio).delete()
+  }
+
+  getBio(idBio:string){
+    const uid = this.authService.userData().uid;
+    return this.fireStore.collection('users').doc(uid).collection('minibios').doc(idBio).get();
+  }
+
+  updateMinibio(idBio: string, data: any) {
+    const uid = this.authService.userData().uid;
+    return this.fireStore.collection('users').doc(uid).collection('minibios').doc(idBio).update(data);
+  }
+
+  getMiniBioPublic(userid: string, id: string) {
+    return this.fireStore.collection('users').doc(userid).collection('minibios').doc(id).get()
+  }
+
 }
