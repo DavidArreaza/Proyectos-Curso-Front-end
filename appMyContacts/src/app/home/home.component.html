@@ -57,11 +57,6 @@
               <span class="ms-1 d-none d-sm-inline">Ordenar por:</span>
             </a>
             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-              <li class="w-100">
-                <a href="#" class="nav-link px-0">
-                  <span class="d-none d-sm-inline">- Nombre</span>
-                </a>
-              </li>
               <li>
                 <a href="#" class="nav-link px-0">
                   <span class="d-none d-sm-inline">- Amigos</span>
@@ -75,6 +70,11 @@
               <li>
                 <a href="#" class="nav-link px-0">
                   <span class="d-none d-sm-inline">- Trabajo</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link px-0">
+                  <span class="d-none d-sm-inline">- Otros</span>
                 </a>
               </li>
             </ul>
@@ -96,23 +96,38 @@
       Content area...
       <input (input)="buscarContact($event)" type="text" class="form-control" placeholder="Buscar" aria-label="Username" aria-describedby="basic-addon1" />
       
-      <ul class="list-group mt-4">
-        <ul>
-          <li class="list-group-item" *ngFor="let contact of misContacts">
+      <div class="row justify-content-center mt-3">
+        <div class="col-md-12 col-xl-10 text-start mt-1 card" *ngFor="let contact of misContacts">
+          <!--<img src="../../assets/img/fondo.jpg" class="img">
+          <p>Lorem ipsum dolor sit amet </p> -->
 
-            <div class="row">
-              <div class="col-6">
-                {{contact.nombre}}
-              </div>
-              <div class="col-6">
-                <button type="button" class="btn btn-danger">Delete</button>
-              </div>
+          <div class="d-flex bd-highlight">
+            <div class="p-2 bd-highlight pp2">
+              <img src="../../assets/img/fondo.jpg" class="img">
+            </div>
+    
+            <div class="p-2 flex-grow-1 bd-highlight pp">
+              <p>Nombre: {{contact.nombre}}</p>
+              <p>Número: {{contact.numero}}</p>
+              <p>Email: {{contact.email}}</p>
+              <p>Grupo: {{contact.grupo}}</p>
+              <button (click)="eliminarContacat(contact.id)" class="btn btn-danger">Eliminar</button>
+              <button class="btn btn-secondary dropdown-toggle doc" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false" ></button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><button class="dropdown-item" type="button">Editar</button></li>
+                <li><button class="dropdown-item" type="button">Eliminar</button></li>
+              </ul>
             </div>
 
-          </li>
-        </ul>
-      </ul>
+          </div>
+
+
+        </div>
+
+      </div>
     </div>
   </div>
 </div>
 
+
+<notifier-container></notifier-container>

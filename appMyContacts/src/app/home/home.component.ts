@@ -4,6 +4,8 @@ import { faHome, faUserPlus, faSortAmountUpAlt, faTimes, faBars } from '@fortawe
 import { ifStmt } from '@angular/compiler/src/output/output_ast';
 import { CrudcontactService } from '../shared/services/crudcontact.service';
 import { Contact } from '../shared/models/contact';
+import { NotifierService } from 'angular-notifier';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +24,8 @@ export class HomeComponent implements OnInit {
   addContact = false;
   misContacts : Array<Contact> = [];
 
-  constructor(private authService : AuthService, private serviceContacts : CrudcontactService) { 
+  constructor(private authService : AuthService, private serviceContacts : CrudcontactService,
+    private notifier: NotifierService, private router: Router) { 
     this.loadAllContacts();
   }
 
@@ -42,7 +45,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  openAddContact(){
+  /*openAddContact(){
     console.log("Pulsado");
     if(!this.addContact){
       this.addContact = true;
@@ -51,14 +54,22 @@ export class HomeComponent implements OnInit {
       this.addContact = false;
       console.log("Cierro añadir contacto");
     }
-  }
+  }*/
 
   buscarContact(event : any){
-
+    /*this.serviceContacts.getContactName(event.target.value).subscribe(data =>{
+      this.misContacts = [];
+      data.forEach((doc : any) => {
+        let myContact : Contact = doc.data();
+        myContact.id = doc.id;
+        console.log(myContact)
+        this.misContacts.push(myContact);
+      });
+    });*/
   }
 
   loadAllContacts(){
-    this.serviceContacts.readAllPost().subscribe(data =>{
+    this.serviceContacts.readAllContacts().subscribe(data =>{
       this.misContacts = [];
       data.forEach((doc : any) =>{
         let myContact : Contact = doc.data();
@@ -68,6 +79,15 @@ export class HomeComponent implements OnInit {
       })
     })
     console.log(this.misContacts)
+  }
+
+  eliminarContacat(idContact: any){
+    this.serviceContacts.deleteContact(idContact).then(success => {
+      this.notifier.notify('success', 'Eliminado');
+      this.loadAllContacts();
+    }).catch(error => {
+      this.notifier.notify('error', 'Error');
+    })
   }
 
 }

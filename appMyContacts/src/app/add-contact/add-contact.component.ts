@@ -4,6 +4,7 @@ import { faCameraRetro } from '@fortawesome/free-solid-svg-icons';
 import { Contact } from '../shared/models/contact';
 import { CrudcontactService } from '../shared/services/crudcontact.service';
 import { NotifierService } from 'angular-notifier';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'add-contact',
@@ -17,7 +18,9 @@ export class AddContactComponent implements OnInit {
 
   cForm : FormGroup;
 
-  constructor(private fb: FormBuilder, private serviceContact: CrudcontactService, private notifier: NotifierService) {
+  constructor(private fb: FormBuilder, private serviceContact: CrudcontactService,
+     private notifier: NotifierService, private route: ActivatedRoute, private router: Router) {
+
     this.cForm = this.fb.group({
       nombre: ["", Validators.required], 
       numero: ["", Validators.required],
@@ -51,6 +54,7 @@ export class AddContactComponent implements OnInit {
     }
     this.serviceContact.createContact(contact).then(success =>{
       this.notifier.notify('success', 'Todo OK!');
+      this.router.navigate(["/home"]);
     }).catch(error => {
       this.notifier.notify('error', 'Error');
     });

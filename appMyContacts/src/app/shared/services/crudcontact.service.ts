@@ -16,11 +16,32 @@ export class CrudcontactService {
   }
 
   /**
-   * Lee todos los datos de una colección
+   * Lee todos los datos de la colección contacts
    * @returns todos los datos de esa colección
    */
-   readAllPost(){
-    return this.fireStore.collection('contacts').get();
+   readAllContacts(){
+    const uid = this.authService.userData().uid;
+    return this.fireStore.collection('users').doc(uid).collection('contacts').get()
+  }
+
+  deleteContact(idBio:string){
+    const uid = this.authService.userData().uid;
+    return this.fireStore.collection('users').doc(uid).collection('contacts').doc(idBio).delete()
+  }
+
+  getContact(idBio:string){
+    const uid = this.authService.userData().uid;
+    return this.fireStore.collection('users').doc(uid).collection('contacts').doc(idBio).get();
+  }
+
+  getContactName(nombreContact:string){
+    const uid = this.authService.userData().uid;
+    return this.fireStore.collection('users').doc(uid).collection('contacts').doc(nombreContact).get();
+  }
+
+  updateContact(idBio: string, data: any) {
+    const uid = this.authService.userData().uid;
+    return this.fireStore.collection('users').doc(uid).collection('contacts').doc(idBio).update(data);
   }
 
 }
