@@ -6,11 +6,12 @@ import { ContentmainComponent } from './contentmain/contentmain.component';
 import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
 import { DetallesComponent } from './detalles/detalles.component';
+import { AuthGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
   {path: '', component: ContentmainComponent},
   //{path: 'sidebar', component: MenulateralComponent}
-  {path: 'login', component: LoginComponent},
+  {path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   {path: 'signin', component: SigninComponent},
   {path: 'detalles', component: DetallesComponent}
 ];

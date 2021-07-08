@@ -9,6 +9,11 @@ import { ContentmainComponent } from './contentmain/contentmain.component';
 import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
 import { DetallesComponent } from './detalles/detalles.component';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { AuthService } from './shared/services/auth.service';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 //import { DetailsComponent } from './details/details.component';
 
 @NgModule({
@@ -24,9 +29,12 @@ import { DetallesComponent } from './detalles/detalles.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
