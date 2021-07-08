@@ -7,13 +7,13 @@
 
       <div [formGroup]="bioForm" class="form-floating mt-4">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" formControlName="title" placeholder="NombreBio" />
-          <label for="floatingInput">Nombre bio</label>
+          <input type="text" class="form-control" id="floatingInputN" formControlName="title" placeholder="NombreBio" />
+          <label for="floatingInputN">Nombre bio</label>
         </div>
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" formControlName="description" placeholder="Descripcion" />
-          <label for="floatingInput">Descripción</label>
+          <input type="text" class="form-control" id="floatingInputD" formControlName="description" placeholder="Descripcion" />
+          <label for="floatingInputD">Descripción</label>
         </div>
 
         <div class="form-floating mb-3">
@@ -21,23 +21,38 @@
           <label for="floatingInput">URL imagen</label>
         </div>
 
+        <!--<div class="mb-3">
+          <label formControlName="image" for="formFile" class="form-label">Imagen</label>
+          <input (change)="uploadFile($event)" class="form-control" type="file" id="formFile">
+        </div>-->
+
+        <input type="file" (change)="uploadFile($event)" />
+        <div>{{ uploadPercent | async }}</div>
+        <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" [ngStyle]="{'width': percent + '%' }" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+
+        <img [src]="downloadURL | async" class="img-thumbnail" alt="...">
+
         <p>Enlace 1</p>
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" formControlName="linktitle1" placeholder="name@example.com" />
-          <label for="floatingInput">Titulo enlace</label>
+          <input type="text" class="form-control" id="floatingInputL" formControlName="linktitle1" placeholder="name@example.com" />
+          <label for="floatingInputL">Titulo enlace</label>
         </div>
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" formControlName="link1" placeholder="name@example.com" />
-          <label for="floatingInput">URL</label>
+          <input type="text" class="form-control" id="floatingInputU" formControlName="link1" placeholder="name@example.com" />
+          <label for="floatingInputU">URL</label>
         </div>
 
         <p>Enlace 2</p>
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" formControlName="linktitle2" placeholder="name@example.com" />
-          <label for="floatingInput">Titulo enlace</label>
+          <input type="text" class="form-control" id="floatingInput2" formControlName="linktitle2" placeholder="name@example.com" />
+          <label for="floatingInput2">Titulo enlace</label>
         </div>
 
         <div class="form-floating mb-3">

@@ -17,6 +17,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotifierModule } from 'angular-notifier';
 import { InfoComponent } from './info/info.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import {AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ProfileComponent,
     CreateBioComponent,
     MenuComponent,
-    InfoComponent
+    InfoComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NotifierModule.withConfig(),
     FontAwesomeModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, 
+  {provide: BUCKET, useValue: environment.firebase.storageBucket}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

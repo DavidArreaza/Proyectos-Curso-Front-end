@@ -28,7 +28,26 @@ export class AuthService {
     }
     return this.fireStore.doc(`users/${user.uid}`).set(userData, {
       merge: true
+    }).then(success => {
+      this.getCurrentUser()
     })
+  }
+
+  /**
+   * Para actualizar nombre del usuario en Firebase
+   * @param user 
+   * @returns 
+   */
+  updateIdProfile(user: any){
+    const uid = this.userData().uid;
+    return this.fireStore.collection('users').doc(uid).set(user, {merge: true});    
+  }
+
+  updateLocalData(user : any){
+    const data = this.userData();
+    data.username = user.username;
+
+    localStorage.setItem('user', JSON.stringify(data));
   }
 
   /**
@@ -41,6 +60,13 @@ export class AuthService {
       return true
     }
     return false
+  }
+
+  getCurrentUser(){
+    const uid = this.userData().uid;
+    this.fireStore.collection('users').doc(uid).get().subscribe(data => {
+      this.updateLocalData(data.data())
+    })
   }
 
   /**

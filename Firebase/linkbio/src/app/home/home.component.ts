@@ -12,6 +12,9 @@ export class HomeComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    if(this.authService.isLoggedIn()){
+      this.router.navigate(['/profile']);
+    }
   }
 
   login(){

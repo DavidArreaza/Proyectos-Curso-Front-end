@@ -7,11 +7,12 @@
             <p>{{user.description}}</p>
   
             <a *ngFor="let item of user.links" href="{{item.link}}" class="link-item d-flex align-items-center" target="_blank">
-                <div class="item-left">
+                <!--<div class="item-left">
                     <fa-icon [icon]="item.icon"></fa-icon>
-                </div>
-                <div class="item-right">
+                </div>-->
+                <div class="item-center">
                     <p>{{item.title}}</p>
+                    <p>{{item.link}}</p>
                 </div>
             </a>
   
