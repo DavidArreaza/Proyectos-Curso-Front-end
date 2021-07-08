@@ -7,13 +7,13 @@ import { BarranavComponent } from './barranav/barranav.component';
 import { MenulateralComponent } from './menulateral/menulateral.component';
 import { ContentmainComponent } from './contentmain/contentmain.component';
 import { LoginComponent } from './login/login.component';
-import { SigninComponent } from './signin/signin.component';
 import { DetallesComponent } from './detalles/detalles.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './shared/services/auth.service';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { EditperfilComponent } from './editperfil/editperfil.component';
 //import { DetailsComponent } from './details/details.component';
 
 @NgModule({
@@ -23,8 +23,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     MenulateralComponent,
     ContentmainComponent,
     LoginComponent,
-    SigninComponent,
     DetallesComponent,
+    EditperfilComponent,
     //DetailsComponent
   ],
   imports: [

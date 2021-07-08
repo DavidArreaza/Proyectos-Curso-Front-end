@@ -3,5 +3,7 @@ export class Game {
   title: string = '';
   author: string = '';
   description: string = '';
-  date: Date = new Date();
+  jugadores: number = 0;
+  duracion: number = 0;
+  date: string = '';
 }

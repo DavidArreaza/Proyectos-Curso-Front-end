@@ -47,7 +47,7 @@ export class AuthService {
    * Registo con Google
    * @returns 
    */
-  googleAuth(): Promise<any> {
+   googleAuth(): Promise<any> {
     return this.fireAuth.signInWithPopup(new fireapp.auth.GoogleAuthProvider())
      .then((result) => {
        localStorage.setItem('user', JSON.stringify(result.user)); //Llama a setUserData para guardarlo en Firebase
@@ -72,7 +72,7 @@ export class AuthService {
   signOut() {
     return this.fireAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['/']);
+      this.router.navigate(['']);
     })
   }
 

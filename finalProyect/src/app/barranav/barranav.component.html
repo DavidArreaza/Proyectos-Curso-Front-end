@@ -10,19 +10,20 @@
         <img id="img" src="../../assets/img/logo2.PNG">
       </span>
     </div>
-      
-    <!-- Links -->
-    <ul class="navbar-nav ">
-      <!--<li class="nav-item">
-        <a class="nav-link" href="#">Link 1</a>
-      </li>-->
 
-      <form class="form-inline my-2 my-lg-0">
-        <button class="btn btn-success" routerLink="/login">Acceder</button>
-        <a routerLink="/signin">Registrarme</a>
-      </form>
+    <div class="dropdown">
+      <button class="btn btn-success" (click)="login()">
+        <img class="google" src="../../assets/img/google.svg">  Acceder
+      </button>
+      <a *ngIf="logueado == true" class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ user.displayName }}
+      </a>
+      <ul *ngIf="logueado == true" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li><a class="dropdown-item" routerLink="/edit">Editar perfil</a></li>
+        <li><a href="javascript:void(0)" (click)="logOut()">Cerrar sesión</a></li>
+      </ul>
+    </div>
 
-    </ul>
   </div>
 </nav>
 
