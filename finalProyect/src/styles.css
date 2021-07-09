@@ -2,11 +2,12 @@
 body{
     /*background-color: #5c24ab;*/
     /*background-image: url("https://i.imgur.com/nrFCOUB.jpg");*/
-    background-image: linear-gradient(
+    /*background-image: linear-gradient(
     to bottom,
     #5c24ab,
     #7148aa,
     #9075b6
-  );
+  );*/
+  /*background: linear-gradient(to top, grey, white);*/
   /*background-color: rgb(212, 255, 168);*/
 }

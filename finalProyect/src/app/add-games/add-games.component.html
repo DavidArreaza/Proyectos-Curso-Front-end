@@ -1,0 +1,58 @@
+<div [formGroup]="gameForm" class="form-floating mt-4 c">
+    <div class="row">
+        <div class="col-6 mt-4 me-4 md-4">
+
+        <h3>Crea tu partida</h3>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInputTitulo" formControlName="titulo" placeholder="Parchís"/>
+                <label for="floatingInputTitulo">Título del juego</label>
+            </div>
+        
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInputDes" formControlName="descripcion" style="height: 100px" placeholder="Parchís"/>
+                <label for="floatingInputDes">Cómo se juega</label>
+            </div>
+        
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="floatingInputNumero" formControlName="jugadores" placeholder="numero" />
+                        <label for="floatingInputNumero">Número de jugadores</label>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="floatingInputDuracion" formControlName="duracion" placeholder="numero" />
+                        <label for="floatingInputDuracion">Duración (min)</label>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" id="floatingInputFecha" formControlName="date" placeholder="numero" />
+                        <label for="floatingInputFecha">Fecha de la partida</label>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="col-5 mt-4 me-4 md-4">
+
+            <div class="mb-3">
+                <label for="formFileMultiple" class="form-label" >Multiple files input example</label>
+                <input class="form-control" type="file" id="formFileMultiple" multiple (change)="uploadFile($event)">
+
+                <div>{{ uploadPercent | async }}</div>
+                <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+            </div>
+        
+            <div class="progress">
+              <div class="progress-bar bg-success" role="progressbar" [ngStyle]="{'width': percent + '%' }" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        
+            <img [src]="downloadURL | async" class="img-thumbnail" alt="...">
+        </div>
+    </div>
+    <button (click)="imprimirMisFoto()" type="button" class="btn btn-primary">Primary</button>
+</div>

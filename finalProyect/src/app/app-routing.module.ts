@@ -8,14 +8,16 @@ import { LoginComponent } from './login/login.component';
 import { DetallesComponent } from './detalles/detalles.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { EditperfilComponent } from './editperfil/editperfil.component';
+import { AddGamesComponent } from './add-games/add-games.component';
 
 const routes: Routes = [
-  {path: '', component: ContentmainComponent, pathMatch: "full"},
+  {path: '', component: ContentmainComponent},
   {path: 'home/:id', component: ContentmainComponent, canActivate: [AuthGuard]},
   //{path: 'sidebar', component: MenulateralComponent}
   {path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   {path: 'edit', component: EditperfilComponent, canActivate: [AuthGuard]},
-  {path: 'detalles', component: DetallesComponent, canActivate: [AuthGuard]}
+  {path: 'detalles', component: DetallesComponent, canActivate: [AuthGuard]},
+  {path: 'add', component: AddGamesComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

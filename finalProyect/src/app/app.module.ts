@@ -14,6 +14,8 @@ import { AuthService } from './shared/services/auth.service';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { EditperfilComponent } from './editperfil/editperfil.component';
+import { AddGamesComponent } from './add-games/add-games.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import { DetailsComponent } from './details/details.component';
 
 @NgModule({
@@ -25,6 +27,7 @@ import { EditperfilComponent } from './editperfil/editperfil.component';
     LoginComponent,
     DetallesComponent,
     EditperfilComponent,
+    AddGamesComponent,
     //DetailsComponent
   ],
   imports: [
@@ -32,7 +35,9 @@ import { EditperfilComponent } from './editperfil/editperfil.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
