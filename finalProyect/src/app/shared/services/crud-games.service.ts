@@ -14,4 +14,10 @@ export class CrudGamesService {
     const uid = this.authService.userData().uid; //Busco el id del usuario para guardar la bio en ese usuario
     return this.fireStore.collection('users').doc(uid).collection('games').add(data);
   }
+
+  readAllGames(){
+    /*return this.fireStore.collection('minibios').get();*/
+    const uid = this.authService.userData().uid;
+    return this.fireStore.collection('users').doc(uid).collection('games').get()
+  }
 }

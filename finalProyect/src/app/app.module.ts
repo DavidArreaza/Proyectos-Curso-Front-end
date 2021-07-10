@@ -16,6 +16,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { EditperfilComponent } from './editperfil/editperfil.component';
 import { AddGamesComponent } from './add-games/add-games.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotifierModule } from 'angular-notifier';
 //import { DetailsComponent } from './details/details.component';
 
 @NgModule({
@@ -37,7 +38,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NotifierModule.withConfig()
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

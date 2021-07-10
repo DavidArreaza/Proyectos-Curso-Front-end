@@ -5,6 +5,7 @@ import { CrudGamesService } from '../shared/services/crud-games.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'add-games',
@@ -21,7 +22,7 @@ export class AddGamesComponent implements OnInit {
   percent : any;
 
   constructor(private fb: FormBuilder, private gameService: CrudGamesService, private router: Router,
-    private route: ActivatedRoute, private storage : AngularFireStorage) {
+    private route: ActivatedRoute, private storage : AngularFireStorage, private notifier: NotifierService) {
       this.gameForm = this.fb.group({
         titulo: ["", Validators.required],
         descripcion: ["", Validators.required],
@@ -33,8 +34,30 @@ export class AddGamesComponent implements OnInit {
      }
 
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  get f(){
+    return this.gameForm.controls;
   }
+
+  saveGame(){
+    this.gameForm.patchValue({})
+
+    if(this.gameForm.invalid){
+      console.error("No es valido");
+      console.log(this.gameForm.value)
+      return;
+    }
+    
+    console.log("Creado!");
+    this.gameService.createGame(this.gameForm.value).then(success =>{
+      this.notifier.notify('success', 'Todo OK!');
+      //this.router.navigate(["/profile"]);
+    }).catch(error => {
+      this.notifier.notify('error', 'Error');
+    });
+  }
+
 
   uploadFile(event: any) {
     const file = event.target.files[0];

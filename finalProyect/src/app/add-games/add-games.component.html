@@ -17,19 +17,19 @@
             <div class="row">
                 <div class="col-4">
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="floatingInputNumero" formControlName="jugadores" placeholder="numero" />
+                        <input type="number" class="form-control" id="floatingInputNumero" formControlName="jugadores" placeholder="Numero" />
                         <label for="floatingInputNumero">Número de jugadores</label>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="floatingInputDuracion" formControlName="duracion" placeholder="numero" />
+                        <input type="number" class="form-control" id="floatingInputDuracion" formControlName="duracion" placeholder="Duracion" />
                         <label for="floatingInputDuracion">Duración (min)</label>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="form-floating mb-3">
-                        <input type="date" class="form-control" id="floatingInputFecha" formControlName="date" placeholder="numero" />
+                        <input type="date" class="form-control" id="floatingInputFecha" formControlName="date" placeholder="Fecha" />
                         <label for="floatingInputFecha">Fecha de la partida</label>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
 
             <div class="mb-3">
                 <label for="formFileMultiple" class="form-label" >Multiple files input example</label>
-                <input class="form-control" type="file" id="formFileMultiple" multiple (change)="uploadFile($event)">
+                <input class="form-control" type="file" id="formFileMultiple" multiple (change)="uploadFile($event)" formControlName="imagenes">
 
                 <div>{{ uploadPercent | async }}</div>
                 <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
@@ -54,5 +54,5 @@
             <img [src]="downloadURL | async" class="img-thumbnail" alt="...">
         </div>
     </div>
-    <button (click)="imprimirMisFoto()" type="button" class="btn btn-primary">Primary</button>
+    <button (click)="saveGame()" type="button" class="btn btn-primary">Crear</button>
 </div>
