@@ -1,5 +1,5 @@
 export class Game {
-  id?: string;
+  idUser?: string;
   titulo: string = '';
   description: string = '';
   jugadores: number = 0;

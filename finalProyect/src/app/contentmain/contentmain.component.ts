@@ -20,7 +20,13 @@ export class ContentmainComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.user = this.authService.userData();
+
+    if(this.authService.isLoggedIn()){
+      //this.router.navigate(['/profile']);
+      this.user = this.authService.userData();
+    }
+    
+    //this.user = this.authService.userData();
     this.loadAllBios();
   }
 
@@ -28,11 +34,9 @@ export class ContentmainComponent implements OnInit {
     this.gamesService.readAllGames().subscribe( data => {
       this.misGames = [];
       data.forEach((doc : any) => {
-
-        console.log(doc.id, "=>", doc.data());
-
+        //console.log(doc.id, "=>", doc.data());
         let newGame: Game = doc.data();
-        newGame.id = doc.id;
+        newGame.idUser = doc.id;
         this.misGames.push(newGame);
       })
     })

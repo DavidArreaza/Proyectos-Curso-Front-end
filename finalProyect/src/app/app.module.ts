@@ -17,6 +17,7 @@ import { EditperfilComponent } from './editperfil/editperfil.component';
 import { AddGamesComponent } from './add-games/add-games.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotifierModule } from 'angular-notifier';
+import { MispartidasComponent } from './mispartidas/mispartidas.component';
 //import { DetailsComponent } from './details/details.component';
 
 @NgModule({
@@ -29,6 +30,7 @@ import { NotifierModule } from 'angular-notifier';
     DetallesComponent,
     EditperfilComponent,
     AddGamesComponent,
+    MispartidasComponent,
     //DetailsComponent
   ],
   imports: [

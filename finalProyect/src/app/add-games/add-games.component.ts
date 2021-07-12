@@ -6,6 +6,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { NotifierService } from 'angular-notifier';
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'add-games',
@@ -20,10 +21,15 @@ export class AddGamesComponent implements OnInit {
   downloadURL: Observable<string> | undefined;
   misFotos :any = [];
   percent : any;
+  uid : string = '';
 
-  constructor(private fb: FormBuilder, private gameService: CrudGamesService, private router: Router,
+  constructor(private fb: FormBuilder, private gameService: CrudGamesService, private router: Router, private authService: AuthService,
     private route: ActivatedRoute, private storage : AngularFireStorage, private notifier: NotifierService) {
+      
+      this.uid = this.authService.userData().uid;
+      
       this.gameForm = this.fb.group({
+        id: [this.uid],
         titulo: ["", Validators.required],
         descripcion: ["", Validators.required],
         jugadores: ["", Validators.required],
@@ -34,7 +40,9 @@ export class AddGamesComponent implements OnInit {
      }
 
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.uid = this.authService.userData().uid;
+  }
 
   get f(){
     return this.gameForm.controls;
