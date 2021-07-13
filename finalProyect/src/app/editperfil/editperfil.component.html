@@ -1,10 +1,10 @@
 
 
-<div class="container">
+<!--<div class="container">
     <h2 class="text-left">Edita tu perfil</h2>
 <form class="row g-3">
     <div class="col-md-4">
-      <label for="validationDefault01" class="form-label">Nombre</label>
+      <label for="validationDefault01" class="form-label">{{user.nick}}</label>
       <input type="text" class="form-control" id="validationDefault01" placeholder="Mark Otto" required>
     </div>
     <div class="col-md-4">
@@ -41,4 +41,31 @@
       <button class="btn btn-primary" type="submit">Crear cuenta</button>
     </div>
   </form>
+</div>-->
+
+
+<div class="row align-items-center">
+
+  <div class="col-md-5 col-xl-5 pp">
+    <img src="{{user.photoURL}}">
+  </div>
+
+  <div class="col-md-7 col-xl-7">
+
+    <h3>Editar perfil</h3>
+
+    <div [formGroup]="mForm" class="form-floating mt-4"> 
+      
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInputNombre" formControlName="nombre" placeholder="NombreBio" />
+        <label for="floatingInputNombre">{{user.nick}}</label>
+      </div>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button routerLink="/home" type="submit" class="btn btn-danger">Cancelar</button>
+  </div>
 </div>
+
+
+<notifier-container></notifier-container>
