@@ -12,13 +12,14 @@ import { AddGamesComponent } from './add-games/add-games.component';
 import { MispartidasComponent } from './mispartidas/mispartidas.component';
 
 const routes: Routes = [
-  {path: '', component: ContentmainComponent},
+  {path: '', component: ContentmainComponent, pathMatch: "full"},
   {path: 'home/:id', component: ContentmainComponent, canActivate: [AuthGuard]},
   //{path: 'sidebar', component: MenulateralComponent}
-  {path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+  //{path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   {path: 'edit/:id', component: EditperfilComponent, canActivate: [AuthGuard]},
   {path: 'detalles/:id', component: DetallesComponent, canActivate: [AuthGuard]},
   {path: 'add', component: AddGamesComponent, canActivate: [AuthGuard]},
+  {path: 'editGame/:id', component: AddGamesComponent, canActivate: [AuthGuard]},
   {path: 'games', component: MispartidasComponent, canActivate: [AuthGuard]}
 ];
 

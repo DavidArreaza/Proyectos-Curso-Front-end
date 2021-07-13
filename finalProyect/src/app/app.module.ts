@@ -20,7 +20,6 @@ import { NotifierModule } from 'angular-notifier';
 import { MispartidasComponent } from './mispartidas/mispartidas.component';
 import { BUCKET } from '@angular/fire/storage';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-//import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     EditperfilComponent,
     AddGamesComponent,
     MispartidasComponent,
-    //DetailsComponent
   ],
   imports: [
     BrowserModule,
