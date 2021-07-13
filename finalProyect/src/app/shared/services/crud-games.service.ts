@@ -25,10 +25,11 @@ export class CrudGamesService {
     return this.fireStore.collection('games').get()
   }
 
-  readGamesUser(){ //Corregir
+  readGamesUser(id : string){ //Corregir
     /*return this.fireStore.collection('minibios').get();*/
-    const uid = this.authService.userData().uid;
-    return this.fireStore.collection('users').doc(uid).collection('games').get()
+    //const uid = this.authService.userData().uid;
+    //return this.fireStore.collection('games').doc(uid).collection('games').get()
+    //return this.fireStore.collection('games').doc(id).get();
   }
 
   updateGame(id: string, data: Game){
@@ -37,5 +38,9 @@ export class CrudGamesService {
 
   readOneGame(id: any){
     return this.fireStore.collection('games').doc(id).get();
+  }
+
+  deleteGame(idGame:string){
+    return this.fireStore.collection('games').doc(idGame).delete();
   }
 }

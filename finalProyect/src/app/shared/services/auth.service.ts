@@ -7,28 +7,31 @@ import { User } from '../models/user';
 import fireapp from 'firebase/app';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor(private fireStore: AngularFirestore, private fireAuth: AngularFireAuth, private router: Router) { }
+  constructor(
+    private fireStore: AngularFirestore,
+    private fireAuth: AngularFireAuth,
+    private router: Router
+  ) {}
 
   /**
    * Guardar datos de un usuario
-   * @param user 
-   * @returns 
+   * @param user
+   * @returns
    */
-   setUserData(user: any) {
+  setUserData(user: any) {
     const userData: User = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      emailVerified: user.emailVerified
-    }
+      emailVerified: user.emailVerified,
+    };
     return this.fireStore.doc(`users/${user.uid}`).set(userData, {
-      merge: true
-    })
+      merge: true,
+    });
   }
 
   /**
@@ -37,43 +40,61 @@ export class AuthService {
    */
   isLoggedIn(): boolean {
     const user = localStorage.getItem('user');
-    if(user) {
-      return true
+    if (user) {
+      return true;
     }
-    return false
+    return false;
   }
 
   /**
    * Registo con Google
-   * @returns 
+   * @returns
    */
-   googleAuth(): Promise<any> {
+  googleAuth(): Promise<any> {
     return this.fireAuth.signInWithPopup(new fireapp.auth.GoogleAuthProvider())
-     .then((result) => {
-       localStorage.setItem('user', JSON.stringify(result.user)); //Llama a setUserData para guardarlo en Firebase
-       this.setUserData(result.user);
-     }).catch((error) => {
-        throwError(error)
-     })
-   }
-
-  /**
-   * 
-   * @returns 
-   */
-  userData(): User {
-    return JSON.parse(localStorage.getItem('user')!)
+      .then((result) => {
+        localStorage.setItem('user', JSON.stringify(result.user)); //Llama a setUserData para guardarlo en Firebase
+        this.setUserData(result.user);
+      })
+      .catch((error) => {
+        throwError(error);
+      });
   }
 
   /**
-   * 
-   * @returns 
+   *
+   * @returns
+   */
+  userData(): User {
+    return JSON.parse(localStorage.getItem('user')!);
+  }
+
+  /**
+   *
+   * @returns
    */
   signOut() {
     return this.fireAuth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['/']);
-    })
+    });
   }
 
+  /**
+   * Para actualizar nombre del usuario en Firebase
+   * @param user
+   * @returns
+   */
+  updateIdProfile(user: any) {
+    const uid = this.userData().uid;
+    return this.fireStore.collection('users').doc(uid).set(user, { merge: true });
+  }
+
+  updateLocalData(user: any) {
+    const data = this.userData();
+    data.nick = user.username;
+
+    localStorage.setItem('user', JSON.stringify(data));
+    this.router.navigate(['/home' + data.uid]);
+  }
 }
