@@ -48,6 +48,7 @@ export class AuthService {
     data.username = user.username;
 
     localStorage.setItem('user', JSON.stringify(data));
+    this.router.navigate(['/profile']);
   }
 
   /**
