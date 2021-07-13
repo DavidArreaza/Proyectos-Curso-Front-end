@@ -18,6 +18,8 @@ import { AddGamesComponent } from './add-games/add-games.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotifierModule } from 'angular-notifier';
 import { MispartidasComponent } from './mispartidas/mispartidas.component';
+import { BUCKET } from '@angular/fire/storage';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 //import { DetailsComponent } from './details/details.component';
 
 @NgModule({
@@ -41,9 +43,11 @@ import { MispartidasComponent } from './mispartidas/mispartidas.component';
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
-    NotifierModule.withConfig()
+    NotifierModule.withConfig(),
+    FontAwesomeModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,
+    {provide: BUCKET, useValue: environment.firebase.storageBucket}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

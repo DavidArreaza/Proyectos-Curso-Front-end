@@ -17,16 +17,14 @@
 
   <div class="row align-items-start">
 
-    <div routerLink="/detalles" class="col-lg-3 col-md-3 col-sm-12" *ngFor="let game of misGames">
+    <div class="col-lg-3 col-md-3 col-sm-12" *ngFor="let game of misGames">
       <div class="card my-4 mx-auto">
-          <img [src]="game.imagenes" class="card-img-top" alt="Imagen juego" />
+          <img [src]="game.imagenes" class="card-img-top" alt="Imagen juego"/>
           <div class=“card-body”>
               <h5 class=“card-title”>{{game.titulo}}</h5>
-              <p class=“card-text”>
-                  {{game.description}}
-              </p>
+              <p class=“card-text”>{{game.description}}</p>
               <div class="d-grid gap-2">
-                <button class="btn btn-warning btn-lg" type="button">Unirse</button>
+                <button (click)="openGame(game.id)" class="btn btn-warning btn-lg" type="button">Unirse</button>
               </div>              
           </div>
       </div>

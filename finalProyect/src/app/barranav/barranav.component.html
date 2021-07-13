@@ -6,23 +6,25 @@
       <menulateral></menulateral>
     </div>
     <div class="titulo">
-      <span id="titulo" class="navbar-brand" routerLink="">
+      <span id="titulo" class="navbar-brand">
         <img id="img" src="../../assets/img/logo2.PNG">
       </span>
     </div>
 
     <div class="dropdown">
       <button class="btn btn-success" (click)="login()">
-        <img class="google" src="../../assets/img/google.svg">  Acceder
+        <img class="google" src="../../assets/img/google.svg">Acceder
       </button>
       <a *ngIf="logueado == true" class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
         {{ user.displayName }}
       </a>
       <ul *ngIf="logueado == true" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         <li><a class="dropdown-item" routerLink="/add">Crear partida</a></li>
-        <li><a class="dropdown-item" routerLink="/edit">Editar perfil</a></li>
+        <li><a class="dropdown-item" routerLink="/games">Mis partidas</a></li>
+        <li><a class="dropdown-item" href="javascript:void(0)" (click)="openEdit()">Editar perfil</a></li>
         <li><a href="javascript:void(0)" (click)="logOut()">Cerrar sesión</a></li>
       </ul>
+      <!--<img src={{user.photoURL}} alt="hugenerd" width="30" height="30" class="rounded-circle"/>-->
     </div>
 
   </div>

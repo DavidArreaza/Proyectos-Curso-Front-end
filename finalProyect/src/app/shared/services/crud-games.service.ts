@@ -11,7 +11,6 @@ export class CrudGamesService {
   constructor(private fireStore: AngularFirestore, private authService: AuthService) { }
 
   createGame(data: Game){
-    //const uid = this.authService.userData().uid; //Busco el id del usuario para guardar la bio en ese usuario
     return this.fireStore.collection('games').add(data);
   }
 
@@ -26,7 +25,7 @@ export class CrudGamesService {
     return this.fireStore.collection('games').get()
   }
 
-  readGamesUser(){
+  readGamesUser(){ //Corregir
     /*return this.fireStore.collection('minibios').get();*/
     const uid = this.authService.userData().uid;
     return this.fireStore.collection('users').doc(uid).collection('games').get()
@@ -34,5 +33,9 @@ export class CrudGamesService {
 
   updateGame(id: string, data: Game){
     return this.fireStore.collection('games').doc(id).update(data);
+  }
+
+  readOneGame(id: any){
+    return this.fireStore.collection('games').doc(id).get();
   }
 }

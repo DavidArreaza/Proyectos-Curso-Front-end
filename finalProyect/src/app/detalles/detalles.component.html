@@ -1,13 +1,13 @@
-<div class="cont">
 
-  <div class="row justify-content-start">
+
+  <div class="row justify-content-center">
     
-    <div class="col-6">
+    <div class="col-5">
       
       <div id="carouselExampleControls" class="carousel slide w-100" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="../../assets/img/130-500x500.jpg" class="d-block w-100" alt="...">
+            <img [src]="miGame.imagenes" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
             <img src="../../assets/img/206-500x500.jpg" class="d-block w-100" alt="...">
@@ -28,10 +28,32 @@
 
     </div>
 
-    <div class="col-6">
-        <label>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore aut, quos quis alias dicta numquam? Qui ullam, architecto molestiae magni doloremque amet totam rem incidunt officiis atque ipsam praesentium recusandae!</label>
+    <div class="col-7 text-align-center">
+      <p class="text-center fs-1">{{miGame.titulo}}</p>
+      <p class="text-start fs-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis mollitia quam maxime dicta dolores animi earum odit debitis quasi quod necessitatibus voluptatem magni facere quia ex recusandae, commodi, ipsum libero!</p>
+
+      <div class="row">
+        <div class="col-6">
+          <p class="fs-6"><fa-icon [icon]="faUser"></fa-icon> Jugadores: {{miGame.jugadores}}</p>
+        </div>
+        <div class="col-6">
+          <p class="fs-6"><fa-icon [icon]="faTachometerAlt"></fa-icon> Difucultad: {{miGame.dificultad}}</p>
+        </div>
+        <div class="col-6">
+          <p class="fs-6"><fa-icon [icon]="faIndent"></fa-icon> Categoria: {{miGame.categoria}}</p>
+        </div>
+        <div class="col-6">
+          <p class="fs-6"><fa-icon [icon]="faStopwatch"></fa-icon> Duración: {{miGame.duracion}}</p>
+        </div>
+        <div class="col-6">
+          <p class="fs-6"><fa-icon [icon]="faMapPin"></fa-icon> Lugar: {{miGame.localizacion}}</p>
+        </div>
+        <div class="col-6">
+          <p class="fs-6"><fa-icon [icon]="faCalendarDay"></fa-icon> Fecha: {{miGame.date}}</p>
+        </div>
+      </div>
     </div>
 
   </div>
 
-</div>
+

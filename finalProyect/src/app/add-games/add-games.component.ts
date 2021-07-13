@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { NotifierService } from 'angular-notifier';
 import { AuthService } from '../shared/services/auth.service';
+import listaCiudades from 'src/assets/json/ciudades.json';
 
 @Component({
   selector: 'add-games',
@@ -19,9 +20,10 @@ export class AddGamesComponent implements OnInit {
   gameForm : FormGroup;
   uploadPercent: Observable<any> | undefined;
   downloadURL: Observable<string> | undefined;
-  misFotos :any = [];
+  misFotos : string[] = [];
   percent : any;
   uid : string = '';
+  Ciudades : any = listaCiudades;
 
   constructor(private fb: FormBuilder, private gameService: CrudGamesService, private router: Router, private authService: AuthService,
     private route: ActivatedRoute, private storage : AngularFireStorage, private notifier: NotifierService) {
@@ -29,11 +31,14 @@ export class AddGamesComponent implements OnInit {
       this.uid = this.authService.userData().uid;
       
       this.gameForm = this.fb.group({
-        id: [this.uid],
+        idUser: [this.uid],
         titulo: ["", Validators.required],
         descripcion: ["", Validators.required],
         jugadores: ["", Validators.required],
+        categoria: ["", Validators.required],
+        dificultad: ["", Validators.required],
         duracion: ["", Validators.required],
+        localizacion: ["", Validators.required],
         date: ["", Validators.required],
         imagenes: ["", Validators.required],
       });
@@ -72,7 +77,7 @@ export class AddGamesComponent implements OnInit {
     const filePath = Date.now() + file.name;
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file)
-    console.log(task)
+    //console.log(task)
     // observe percentage changes
     task.percentageChanges().subscribe(number => {
       this.percent = number!
@@ -81,19 +86,15 @@ export class AddGamesComponent implements OnInit {
     task.snapshotChanges().pipe(
         finalize(() => {
           this.downloadURL = fileRef.getDownloadURL()
-          //this.misFotos.push(this.downloadURL)
           this.downloadURL.subscribe(data => {
             this.gameForm.patchValue({
-              image: data
-            })
+              imagenes: data
+            }), console.log("ADFAFAF "+ this.misFotos)
           })
         })
      )
     .subscribe()
   }
 
-  imprimirMisFoto(){
-    console.log(this.misFotos);
-  }
 
 }

@@ -15,7 +15,9 @@ export class BarranavComponent implements OnInit {
   pulsado = false;
   logueado = false;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { 
+    this.uid = this.authService.userData().uid;
+  }
 
   ngOnInit(): void {
     if(this.authService.isLoggedIn()){
@@ -49,6 +51,8 @@ export class BarranavComponent implements OnInit {
     this.authService.signOut();
   }
 
-
+  openEdit(){
+    this.router.navigate(["edit/"+this.uid]);
+  }
 
 }

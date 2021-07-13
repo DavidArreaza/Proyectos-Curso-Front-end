@@ -1,8 +1,7 @@
 <div [formGroup]="gameForm" class="form-floating mt-4 c">
-    <div class="row">
-        <div class="col-6 mt-4 me-4 md-4">
-
+    <div class="row justify-content-center">
         <h3>Crea tu partida</h3>
+        <div class="col-6 mt-4 me-4 md-4">
 
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="floatingInputTitulo" formControlName="titulo" placeholder="Parchís"/>
@@ -16,6 +15,17 @@
         
             <div class="row">
                 <div class="col-4">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" formControlName="categoria" aria-label="Floating label select example">
+                          <option selected value="Estrategia">Estrategia</option>
+                          <option value="Rol">Rol</option>
+                          <option value="Puzzle">Puzzle</option>
+                          <option value="Cartas">Cartas</option>
+                        </select>
+                        <label for="floatingSelect">Categoría</label>
+                    </div>
+                </div>
+                <div class="col-4">
                     <div class="form-floating mb-3">
                         <input type="number" class="form-control" id="floatingInputNumero" formControlName="jugadores" placeholder="Numero" />
                         <label for="floatingInputNumero">Número de jugadores</label>
@@ -25,6 +35,25 @@
                     <div class="form-floating mb-3">
                         <input type="number" class="form-control" id="floatingInputDuracion" formControlName="duracion" placeholder="Duracion" />
                         <label for="floatingInputDuracion">Duración (min)</label>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-floating">
+                        <select class="form-select" formControlName="localizacion" id="floatingSelect" required>
+                            <option selected disabled value="">Localización</option>
+                            <option *ngFor="let ciudad of Ciudades" value={{ciudad.nm}}>{{ciudad.nm}}</option>
+                          </select>
+                          <label for="floatingSelect" class="form-label">Ciudad</label>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" formControlName="dificultad" aria-label="Floating label select example">
+                          <option selected value="Fácil">Fácil</option>
+                          <option value="Intermedio">Intermedio</option>
+                          <option value="Difícil">Difícil</option>
+                        </select>
+                        <label for="floatingSelect">Dificultad del juego</label>
                     </div>
                 </div>
                 <div class="col-4">
@@ -39,13 +68,21 @@
 
         <div class="col-5 mt-4 me-4 md-4">
 
-            <div class="mb-3">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" formControlName="imagenes" placeholder="URL" />
+                <label for="floatingInput">URL imagen</label>
+                <!--<input class="form-control" type="file" id="formFileMultiple" multiple (change)="uploadFile($event)" formControlName="imagenes">-->
+                <input type="file" (change)="uploadFile($event)" multiple/>
+                <div>{{ uploadPercent | async }}</div>
+            </div>
+
+            <!--<div class="mb-3">
                 <label for="formFileMultiple" class="form-label" >Multiple files input example</label>
                 <input class="form-control" type="file" id="formFileMultiple" multiple (change)="uploadFile($event)" formControlName="imagenes">
 
                 <div>{{ uploadPercent | async }}</div>
                 <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
-            </div>
+            </div>-->
         
             <div class="progress">
               <div class="progress-bar bg-success" role="progressbar" [ngStyle]="{'width': percent + '%' }" aria-valuemin="0" aria-valuemax="100"></div>
@@ -56,3 +93,5 @@
     </div>
     <button (click)="saveGame()" type="button" class="btn btn-primary">Crear</button>
 </div>
+
+<notifier-container></notifier-container>

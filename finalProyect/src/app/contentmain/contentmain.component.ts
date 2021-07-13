@@ -27,19 +27,23 @@ export class ContentmainComponent implements OnInit {
     }
     
     //this.user = this.authService.userData();
-    this.loadAllBios();
+    this.loadAllGames();
   }
 
-  loadAllBios(){
+  loadAllGames(){
     this.gamesService.readAllGames().subscribe( data => {
       this.misGames = [];
       data.forEach((doc : any) => {
         //console.log(doc.id, "=>", doc.data());
         let newGame: Game = doc.data();
-        newGame.idUser = doc.id;
+        newGame.id = doc.id;
         this.misGames.push(newGame);
       })
     })
+  }
+
+  openGame(idGame : any){
+    this.router.navigate(["detalles/"+idGame]);
   }
 
 }
