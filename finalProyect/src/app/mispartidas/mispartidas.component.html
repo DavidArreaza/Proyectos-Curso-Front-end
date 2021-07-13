@@ -1,1 +1,42 @@
-<p>mispartidas works!</p>
+<!--<div class="row justify-content-center">
+
+  <div class="col-12 col-lg-5">
+
+    <ul class="list-group shadow p-3 mb-3 bg-body rounded" *ngFor="let game of misGames">
+      <li class="list-group-item">
+        <div class="d-flex flex-row bd-highlight mb-3 aa">
+            <div class="d-flex justify-content-start">
+                <img [src]="game.imagenes" />
+            </div>
+            <div class="d-flex align-items-center bb">
+                <p class="mx-1">{{ game.titulo }}</p>
+            </div>
+            <div class="d-flex align-items-end cc">
+                <button type="button" class="btn btn-dark mx-2"><fa-icon [icon]="faEdit"></fa-icon></button>
+                <button type="button" class="btn btn-danger mx-1"><fa-icon [icon]="faTrashAlt"></fa-icon></button>
+            </div>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</div>-->
+
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-5 head">
+      <a *ngFor="let game of misGames" class="link-item  d-flex align-items-center shadow p-3  mb-3 bg-body rounded" target="_blank">
+        <div class="left-item">
+          <img [src]="game.imagenes" />
+        </div>
+        <div class="right-item mx-2">
+          <p>{{ game.titulo }}</p>
+          <button (click)="editPartida(game.id)" type="button" class="btn btn-dark mx-2"><fa-icon [icon]="faEdit"></fa-icon></button>
+          <button (click)="deleteGame(game.id)" type="button" class="btn btn-danger mx-1"><fa-icon [icon]="faTrashAlt"></fa-icon></button>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<notifier-container></notifier-container>
