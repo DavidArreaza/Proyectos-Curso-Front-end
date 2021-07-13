@@ -92,7 +92,7 @@ export class AuthService {
   }
 
   /**
-   * 
+   * Cerrar sesión
    * @returns 
    */
   signOut() {
