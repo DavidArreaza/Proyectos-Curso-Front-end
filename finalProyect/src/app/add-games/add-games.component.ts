@@ -24,6 +24,8 @@ export class AddGamesComponent implements OnInit {
   percent : any;
   uid : string = '';
   Ciudades : any = listaCiudades;
+  idGame = '';
+  isEdit = false;
 
   constructor(private fb: FormBuilder, private gameService: CrudGamesService, private router: Router, private authService: AuthService,
     private route: ActivatedRoute, private storage : AngularFireStorage, private notifier: NotifierService) {
@@ -42,12 +44,25 @@ export class AddGamesComponent implements OnInit {
         date: ["", Validators.required],
         imagenes: ["", Validators.required],
       });
+
+      this.idGame = this.route.snapshot.paramMap.get('id') as string;
+      if(this.idGame){
+        this.isEdit = true;
+        this.gameService.readOneGame(this.idGame).subscribe(data => {
+          const migame : any = data.data();
+          migame.id = data.id;
+          this.gameForm.patchValue(migame);
+        })
+      }
+      
      }
 
 
   ngOnInit(): void {
     this.uid = this.authService.userData().uid;
+    this.idGame = this.route.snapshot.paramMap.get('id') as string; //Cojo el id de la url
   }
+  
 
   get f(){
     return this.gameForm.controls;

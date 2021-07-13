@@ -1,6 +1,7 @@
-<div [formGroup]="gameForm" class="form-floating mt-4 c">
+<div [formGroup]="gameForm" class="form-floating mt-4">
     <div class="row justify-content-center">
-        <h3>Crea tu partida</h3>
+        <h3 *ngIf="isEdit == false">Crea tu partida</h3>
+        <h3 *ngIf="isEdit == true">Editar partida</h3>
         <div class="col-6 mt-4 me-4 md-4">
 
             <div class="form-floating mb-3">
@@ -90,8 +91,11 @@
         
             <img [src]="downloadURL | async" class="img-thumbnail" alt="...">
         </div>
+        <div class="mt-4">
+            <button *ngIf="isEdit == true" (click)="saveGame()" type="button" class="btn btn-primary">Crear</button>
+            <button *ngIf="isEdit == false" (click)="saveGame()" type="button" class="btn btn-primary">Guardar</button>    
+        </div>
     </div>
-    <button (click)="saveGame()" type="button" class="btn btn-primary">Crear</button>
 </div>
 
 <notifier-container></notifier-container>
