@@ -1,7 +1,53 @@
 <!--<barranav></barranav> -->
 <!--<menulateral></menulateral> -->
 
-<header class="page-header header container-fluid"> <!--Hace que sea responsive de forma nativa-->
+<!-- Sidenav -->
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <a class="aa" href="#"><img class="ic" alt="Inicio" src="../../assets/img/comienzo.svg" />Inicio</a>
+    <a class="aa" href="#"><img class="ic" alt="Estrategia" src="../../assets/img/estrategia.svg">Estrategia</a>
+    <a class="aa" href="#"><img class="ic" alt="Rol" src="../../assets/img/rol-juego.svg" />Rol</a>
+    <a class="aa" href="#"><img class="ic" alt="Puzzle" src="../../assets/img/rompecabezas.svg" />Puzzle</a>
+    <a class="aa" href="#"><img class="ic" alt="Juegos de Tablero" src="../../assets/img/juego-de-damas.svg" />Tablero</a>
+  </mat-drawer>
+
+  <div class="example-sidenav-content fluid">
+    <button type="button" mat-button (click)="drawer.toggle()">Toggle sidenav</button>
+
+    <header class="page-header header container-fluid"> <!--Hace que sea responsive de forma nativa-->
+      <div class="row align-items-center">
+        <div class="col-6 text align-self-center">¿A QUÉ QUIERES JUGAR?</div>
+      </div>
+    </header>
+    
+    <div class="cont">
+    
+      <div class="buscador">
+        <input class="form-control mr-me-2" type="search" placeholder="Buscar">
+      </div>
+      <button (click)="filtro()">adlkfjda</button>
+    
+      <div class="row align-items-start">
+        <div class="col-lg-3 col-md-3 col-sm-12" *ngFor="let game of misGames">
+          <div class="card my-4 mx-auto">
+              <img class="imgcard" [src]="game.imagenes" class="card-img-top" alt="Imagen juego"/>
+              <div class=“card-body”>
+                  <h5 class=“card-title”>{{game.titulo}}</h5>
+                  <p class=“card-text”>{{game.description}}</p>
+                  <div class="d-grid gap-2">
+                    <button (click)="openGame(game.id)" class="btn btn-warning btn-lg" type="button">Unirse</button>
+                  </div>              
+              </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+
+  </div>
+
+</mat-drawer-container>
+
+<!--<header class="page-header header container-fluid">
   <div class="row align-items-center">
     <div class="col-6 text align-self-center">¿A QUÉ QUIERES JUGAR?</div>
   </div>
@@ -28,4 +74,4 @@
       </div>
     </div>
   </div> 
-</div>
+</div>-->

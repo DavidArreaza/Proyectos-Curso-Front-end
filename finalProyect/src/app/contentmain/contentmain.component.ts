@@ -16,6 +16,7 @@ export class ContentmainComponent implements OnInit {
   game : any;
   misGames: Array<Game> = [];
   gamesSearch : Array<Game> = [];
+  showFiller = false;
 
 
   constructor(private authService: AuthService, private gameService : CrudGamesService, private notifier: NotifierService,
