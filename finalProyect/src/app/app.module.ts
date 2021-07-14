@@ -20,6 +20,8 @@ import { NotifierModule } from 'angular-notifier';
 import { MispartidasComponent } from './mispartidas/mispartidas.component';
 import { BUCKET } from '@angular/fire/storage';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsModule,
     ReactiveFormsModule,
     NotifierModule.withConfig(),
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule,
   ],
   providers: [AuthService,
     {provide: BUCKET, useValue: environment.firebase.storageBucket}],
