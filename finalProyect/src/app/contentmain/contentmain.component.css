@@ -33,10 +33,6 @@ img{
     margin-right: 15px;
 }
 
-.card:hover{
-    cursor: pointer;
-}
-
 .buscador{
     margin-top: 10px;
 }

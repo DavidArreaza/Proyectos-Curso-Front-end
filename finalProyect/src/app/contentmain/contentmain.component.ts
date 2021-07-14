@@ -13,10 +13,12 @@ import { CrudGamesService } from '../shared/services/crud-games.service';
 export class ContentmainComponent implements OnInit {
 
   user : any;
+  game : any;
   misGames: Array<Game> = [];
+  gamesSearch : Array<Game> = [];
 
 
-  constructor(private authService: AuthService, private gamesService : CrudGamesService, private notifier: NotifierService,
+  constructor(private authService: AuthService, private gameService : CrudGamesService, private notifier: NotifierService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -31,7 +33,7 @@ export class ContentmainComponent implements OnInit {
   }
 
   loadAllGames(){
-    this.gamesService.readAllGames().subscribe( data => {
+    this.gameService.readAllGames().subscribe( data => {
       this.misGames = [];
       data.forEach((doc : any) => {
         //console.log(doc.id, "=>", doc.data());
@@ -44,6 +46,20 @@ export class ContentmainComponent implements OnInit {
 
   openGame(idGame : any){
     this.router.navigate(["detalles/"+idGame]);
+  }
+
+  filtro(){
+    this.gameService.readAllGames().subscribe(data => {
+      this.gamesSearch = [];
+      data.forEach((doc : any) => {
+        let newGame: Game = doc.data();
+        newGame.id = doc.id;
+        if(newGame.categoria == "Rol"){
+          this.gamesSearch.push(newGame);
+        }
+      })
+      console.log(this.gamesSearch)
+    })
   }
 
 }

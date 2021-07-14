@@ -7,16 +7,14 @@
   </div>
 </header>
 
-<div class="menu"></div>
-
 <div class="cont">
 
   <div class="buscador">
     <input class="form-control mr-me-2" type="search" placeholder="Buscar">
   </div>
+  <button (click)="filtro()">adlkfjda</button>
 
   <div class="row align-items-start">
-
     <div class="col-lg-3 col-md-3 col-sm-12" *ngFor="let game of misGames">
       <div class="card my-4 mx-auto">
           <img [src]="game.imagenes" class="card-img-top" alt="Imagen juego"/>
@@ -29,52 +27,5 @@
           </div>
       </div>
     </div>
-    <!--
-    <div routerLink="/detalles" class="col-lg-3 col-md-3 col-sm-12">
-      <div class="card my-4 mx-auto">
-          <img src="https://i.imgur.com/lQmWiXN.jpg" class=“card-img-top” alt=“...” />
-          <div class=“card-body”>
-              <h5 class=“card-title”>Card title</h5>
-              <p class=“card-text”>
-                  Some quick example text to build on the card title and make up the bulk of the card’s con”card”
-              </p>
-              <div class="d-grid gap-2">
-                <button class="btn btn-warning btn-lg" type="button">Unirse</button>
-              </div>              
-          </div>
-      </div>
-    </div>
-
-    <div routerLink="/detalles" class="col-lg-3 col-md-3 col-sm-12">
-      <div class="card my-4 mx-auto">
-          <img src="https://i.imgur.com/lQmWiXN.jpg" class=“card-img-top” alt=“...” />
-          <div class=“card-body”>
-              <h5 class=“card-title”>Card title</h5>
-              <p class=“card-text”>
-                  Some quick example text to build on the card title and make up the bulk of the card’s con”card”
-              </p>
-              <div class="d-grid gap-2">
-                <button class="btn btn-warning btn-lg" type="button">Unirse</button>
-              </div>              
-          </div>
-      </div>
-    </div>
-
-    <div routerLink="/detalles" class="col-lg-3 col-md-3 col-sm-12">
-      <div class="card my-4 mx-auto">
-          <img src="https://i.imgur.com/lQmWiXN.jpg" class=“card-img-top” alt=“...” />
-          <div class=“card-body”>
-              <h5 class=“card-title”>Card title</h5>
-              <p class=“card-text”>
-                  Some quick example text to build on the card title and make up the bulk of the card’s con”card”
-              </p>
-              <div class="d-grid gap-2">
-                <button class="btn btn-warning btn-lg" type="button">Unirse</button>
-              </div>              
-          </div>
-      </div>
-    </div>
-    --> 
-
   </div> 
 </div>
