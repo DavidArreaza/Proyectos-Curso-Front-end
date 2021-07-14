@@ -21,7 +21,7 @@ import { MispartidasComponent } from './mispartidas/mispartidas.component';
 import { BUCKET } from '@angular/fire/storage';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -46,6 +46,7 @@ import { MatSliderModule } from '@angular/material/slider';
     NotifierModule.withConfig(),
     FontAwesomeModule,
     BrowserAnimationsModule,
+    MatSidenavModule
   ],
   providers: [AuthService,
     {provide: BUCKET, useValue: environment.firebase.storageBucket}],
