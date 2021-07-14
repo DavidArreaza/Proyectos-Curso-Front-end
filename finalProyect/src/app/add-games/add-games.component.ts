@@ -27,6 +27,7 @@ export class AddGamesComponent implements OnInit {
   idGame = '';
   isEdit = false;
 
+
   constructor(private fb: FormBuilder, private gameService: CrudGamesService, private router: Router, private authService: AuthService,
     private route: ActivatedRoute, private storage : AngularFireStorage, private notifier: NotifierService) {
       
@@ -111,5 +112,20 @@ export class AddGamesComponent implements OnInit {
     .subscribe()
   }
 
+
+  updateGame(){
+    if(this.gameForm.invalid){
+      this.notifier.notify('error', 'Los datos no son válidos');
+      return;
+    }
+
+    this.gameService.updateGame(this.idGame, this.gameForm.value).then(success => {
+      this.notifier.notify('success', 'Actualizado!');
+      this.router.navigate(["/home/"+this.uid])
+    }).catch(error => {
+      this.notifier.notify('error', '¡Ups! Parace que algo salió mal');
+    })
+
+  }
 
 }
