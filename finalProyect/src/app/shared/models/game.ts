@@ -1,7 +1,7 @@
 export class Game {
   id?: string;
   titulo: string = '';
-  description: string = '';
+  descripcion: string = '';
   jugadores: number = 0;
   categoria: string = '';
   dificultad: string = '';
