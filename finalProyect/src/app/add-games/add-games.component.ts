@@ -56,15 +56,13 @@ export class AddGamesComponent implements OnInit {
         })
       }
       
-     }
-
+  }
 
   ngOnInit(): void {
     this.uid = this.authService.userData().uid;
     this.idGame = this.route.snapshot.paramMap.get('id') as string; //Cojo el id de la url
   }
   
-
   get f(){
     return this.gameForm.controls;
   }
@@ -81,24 +79,22 @@ export class AddGamesComponent implements OnInit {
     console.log("Creado!");
     this.gameService.createGame(this.gameForm.value).then(success =>{
       this.notifier.notify('success', 'Todo OK!');
-      //this.router.navigate(["/profile"]);
+      this.router.navigate(["/home/"+this.uid]);
     }).catch(error => {
       this.notifier.notify('error', 'Error');
     });
   }
-
 
   uploadFile(event: any) {
     const file = event.target.files[0];
     const filePath = Date.now() + file.name;
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file)
-    //console.log(task)
-    // observe percentage changes
+
     task.percentageChanges().subscribe(number => {
       this.percent = number!
     })
-    // get notified when the download URL is available
+
     task.snapshotChanges().pipe(
         finalize(() => {
           this.downloadURL = fileRef.getDownloadURL()
@@ -118,14 +114,12 @@ export class AddGamesComponent implements OnInit {
       this.notifier.notify('error', 'Los datos no son válidos');
       return;
     }
-
     this.gameService.updateGame(this.idGame, this.gameForm.value).then(success => {
       this.notifier.notify('success', 'Actualizado!');
-      this.router.navigate(["/home/"+this.uid])
+      this.router.navigate(["/home/"+this.uid]);
     }).catch(error => {
       this.notifier.notify('error', '¡Ups! Parace que algo salió mal');
     })
-
   }
 
 }
