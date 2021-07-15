@@ -17,6 +17,7 @@ export class ContentmainComponent implements OnInit {
   misGames: Array<Game> = [];
   gamesSearch : Array<Game> = [];
   showFiller = false;
+  isLoading = false;
 
 
   constructor(private authService: AuthService, private gameService : CrudGamesService, private notifier: NotifierService,
@@ -34,6 +35,7 @@ export class ContentmainComponent implements OnInit {
   }
 
   loadAllGames(){
+    this.isLoading = true;
     this.gameService.readAllGames().subscribe( data => {
       this.misGames = [];
       data.forEach((doc : any) => {
@@ -43,6 +45,7 @@ export class ContentmainComponent implements OnInit {
         this.misGames.push(newGame);
       })
     })
+    this.isLoading = false;
   }
 
   openGame(idGame : any){

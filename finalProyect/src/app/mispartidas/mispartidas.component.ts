@@ -19,6 +19,7 @@ export class MispartidasComponent implements OnInit {
   misGames: Array<Game> = [];
   faTrashAlt = faTrashAlt;
   faEdit = faEdit;
+  isLoading = false;
 
   constructor(private authService : AuthService, private gameService : CrudGamesService,
      private notifier : NotifierService, private router: Router) { }
@@ -29,6 +30,7 @@ export class MispartidasComponent implements OnInit {
   }
 
   readAllGamesUser(){
+    this.isLoading = true;
     this.gameService.readAllGames().subscribe(data => {
       this.misGames = [];
       data.forEach((doc : any) => {
@@ -38,12 +40,12 @@ export class MispartidasComponent implements OnInit {
           this.misGames.push(newGame);
         }
       })
-      console.log(this.misGames)
+      //console.log(this.misGames)
+      this.isLoading = false;
     })
   }
 
   deleteGame(idGame : any){
-    console.log("entro")
     this.gameService.deleteGame(idGame).then(success => {
       this.notifier.notify('success', "Partida eliminada");
       this.readAllGamesUser();

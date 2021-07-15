@@ -1,77 +1,65 @@
-<!--<barranav></barranav> -->
+
 <!--<menulateral></menulateral> -->
 
 <!-- Sidenav -->
 <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <a class="aa" href="#"><img class="ic" alt="Inicio" src="../../assets/img/comienzo.svg" />Inicio</a>
-    <a class="aa" href="#"><img class="ic" alt="Estrategia" src="../../assets/img/estrategia.svg">Estrategia</a>
-    <a class="aa" href="#"><img class="ic" alt="Rol" src="../../assets/img/rol-juego.svg" />Rol</a>
-    <a class="aa" href="#"><img class="ic" alt="Puzzle" src="../../assets/img/rompecabezas.svg" />Puzzle</a>
-    <a class="aa" href="#"><img class="ic" alt="Juegos de Tablero" src="../../assets/img/juego-de-damas.svg" />Tablero</a>
+  <mat-drawer #drawer class="example-sidenav fijo" mode="side">
+    <button class="btn-close"></button>
+    <a class="filter mm"><img class="icon" alt="Inicio" src="../../assets/img/comienzo.svg" />Inicio</a>
+    <a class="filter"><img class="icon" alt="Estrategia" src="../../assets/img/estrategia.svg">Estrategia</a>
+    <a class="filter"><img class="icon" alt="Rol" src="../../assets/img/rol-juego.svg" />Rol</a>
+    <a class="filter"><img class="icon" alt="Puzzle" src="../../assets/img/rompecabezas.svg" />Puzzle</a>
+    <a class="filter"><img class="icon" alt="Juegos de Tablero" src="../../assets/img/juego-de-damas.svg" />Tablero</a>
   </mat-drawer>
 
   <div class="example-sidenav-content fluid">
-    <button type="button" mat-button (click)="drawer.toggle()">Toggle sidenav</button>
+    
+    <header class="page-header header container-fluid">
 
-    <header class="page-header header container-fluid"> <!--Hace que sea responsive de forma nativa-->
-      <div class="row align-items-center">
-        <div class="col-6 text align-self-center">¿A QUÉ QUIERES JUGAR?</div>
+      <div class="row justify-content-start">
+        <div class="col-1 mt-2">
+          <div class="example-button-container">
+            <button (click)="drawer.toggle()" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+              <mat-icon>menu</mat-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="col-6 mt-2 offset-md-2">
+          <p class="h1 text-center">¿A QUÉ QUIERES JUGAR?</p>
+          <p class="h4 text-center">¿Falta un jugador para completar la partida? Aquí podras encontrar jugadores o unirte a partidas de otros jugadores</p>
+        </div>
       </div>
     </header>
     
     <div class="cont">
-    
-      <div class="buscador">
-        <input class="form-control mr-me-2" type="search" placeholder="Buscar">
+
+      <div class="input-group mt-4">
+        <input type="search" class="form-control" placeholder="Buscar" aria-label="Example text with button addon" aria-describedby="button-addon1">
       </div>
-      <button (click)="filtro()">adlkfjda</button>
-    
+
       <div class="row align-items-start">
-        <div class="col-lg-3 col-md-3 col-sm-12" *ngFor="let game of misGames">
-          <div class="card my-4 mx-auto">
-              <img class="imgcard" [src]="game.imagenes" class="card-img-top" alt="Imagen juego"/>
-              <div class=“card-body”>
-                  <h5 class=“card-title”>{{game.titulo}}</h5>
-                  <p class=“card-text”>{{game.description}}</p>
+
+        <div class="col-12 align-items-center">
+          <div *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-12 mt-3" *ngFor="let game of misGames">
+          <div class="card my-2 mx-auto">
+              <div class="card-body">
+                  <h2 class="card-title text-center">{{game.titulo}}</h2>
+                  <img [src]="game.imagenes" class="card-img-top imgcard" alt="Imagen juego"/>
+                  <p class="card-text">{{game.descripcion}}</p>
                   <div class="d-grid gap-2">
-                    <button (click)="openGame(game.id)" class="btn btn-warning btn-lg" type="button">Unirse</button>
+                    <button (click)="openGame(game.id)" class="btn btn-warning btn-lg shadow" type="button">Unirse</button>
                   </div>              
               </div>
           </div>
         </div>
-      </div> 
+      </div>
     </div>
-
   </div>
 
 </mat-drawer-container>
-
-<!--<header class="page-header header container-fluid">
-  <div class="row align-items-center">
-    <div class="col-6 text align-self-center">¿A QUÉ QUIERES JUGAR?</div>
-  </div>
-</header>
-
-<div class="cont">
-
-  <div class="buscador">
-    <input class="form-control mr-me-2" type="search" placeholder="Buscar">
-  </div>
-  <button (click)="filtro()">adlkfjda</button>
-
-  <div class="row align-items-start">
-    <div class="col-lg-3 col-md-3 col-sm-12" *ngFor="let game of misGames">
-      <div class="card my-4 mx-auto">
-          <img [src]="game.imagenes" class="card-img-top" alt="Imagen juego"/>
-          <div class=“card-body”>
-              <h5 class=“card-title”>{{game.titulo}}</h5>
-              <p class=“card-text”>{{game.description}}</p>
-              <div class="d-grid gap-2">
-                <button (click)="openGame(game.id)" class="btn btn-warning btn-lg" type="button">Unirse</button>
-              </div>              
-          </div>
-      </div>
-    </div>
-  </div> 
-</div>-->
