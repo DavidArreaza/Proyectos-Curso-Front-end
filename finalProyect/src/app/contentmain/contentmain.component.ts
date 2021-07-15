@@ -18,6 +18,7 @@ export class ContentmainComponent implements OnInit {
   gamesSearch : Array<Game> = [];
   showFiller = false;
   isLoading = false;
+  isOpen = false;
 
 
   constructor(private authService: AuthService, private gameService : CrudGamesService, private notifier: NotifierService,

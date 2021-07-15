@@ -15,6 +15,7 @@ import { faUser, faCalendarDay, faStopwatch, faTachometerAlt, faIndent, faMapPin
 export class DetallesComponent implements OnInit {
 
   id : string = '';
+  user : any;
   miGame : any;
   faUser = faUser;
   faCalendarDay = faCalendarDay;
@@ -27,6 +28,7 @@ export class DetallesComponent implements OnInit {
      private notifer: NotifierService, private route : ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.user = this.authService.userData();
     this.id = this.route.snapshot.paramMap.get('id') as string; //Id del juego
     this.readGame();
   }

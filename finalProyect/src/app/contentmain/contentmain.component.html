@@ -1,10 +1,5 @@
-
-<!--<menulateral></menulateral> -->
-
-<!-- Sidenav -->
 <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav fijo" mode="side">
-    <button class="btn-close"></button>
+  <mat-drawer #drawer class="sidenav" mode="side">
     <a class="filter mm"><img class="icon" alt="Inicio" src="../../assets/img/comienzo.svg" />Inicio</a>
     <a class="filter"><img class="icon" alt="Estrategia" src="../../assets/img/estrategia.svg">Estrategia</a>
     <a class="filter"><img class="icon" alt="Rol" src="../../assets/img/rol-juego.svg" />Rol</a>
@@ -14,27 +9,19 @@
 
   <div class="example-sidenav-content fluid">
     
-    <header class="page-header header container-fluid">
-
-      <div class="row justify-content-start">
-        <div class="col-1 mt-2">
-          <div class="example-button-container">
-            <button (click)="drawer.toggle()" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-              <mat-icon>menu</mat-icon>
-            </button>
-          </div>
-        </div>
-
-        <div class="col-6 mt-2 offset-md-2">
-          <p class="h1 text-center">¿A QUÉ QUIERES JUGAR?</p>
-          <p class="h4 text-center">¿Falta un jugador para completar la partida? Aquí podras encontrar jugadores o unirte a partidas de otros jugadores</p>
-        </div>
+    <header class="page-header header ">
+      <div class="overlay"></div>
+      <div class="description">
+        <p class="h2">¿A QUÉ QUIERES JUGAR?</p>
+        <p class="h6">¿Falta un jugador para completar la partida?</p>
+        <p class="h6">Aquí podras encontrar jugadores o unirte a partidas de otros jugadores</p>
       </div>
     </header>
     
     <div class="cont">
 
       <div class="input-group mt-4">
+        <button (click)="drawer.toggle()" mat-mini-fab color="primary"><mat-icon>menu</mat-icon></button>
         <input type="search" class="form-control" placeholder="Buscar" aria-label="Example text with button addon" aria-describedby="button-addon1">
       </div>
 

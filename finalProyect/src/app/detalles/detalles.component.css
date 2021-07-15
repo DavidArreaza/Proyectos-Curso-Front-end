@@ -1,1 +1,4 @@
-
+.carousel img{
+    max-height: 500px;
+    min-height: 500px;
+}
