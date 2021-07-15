@@ -33,7 +33,6 @@ export class DetallesComponent implements OnInit {
 
   readGame(){
     this.gameService.readOneGame(this.id).subscribe(data =>{
-      console.log(data.data());
       this.miGame = data.data() as Game;
     })
   }
