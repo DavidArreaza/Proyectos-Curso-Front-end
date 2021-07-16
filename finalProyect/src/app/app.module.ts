@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BarranavComponent } from './barranav/barranav.component';
 import { MenulateralComponent } from './menulateral/menulateral.component';
 import { ContentmainComponent } from './contentmain/contentmain.component';
-import { LoginComponent } from './login/login.component';
 import { DetallesComponent } from './detalles/detalles.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
@@ -32,7 +31,6 @@ import { MatIconModule } from '@angular/material/icon';
     BarranavComponent,
     MenulateralComponent,
     ContentmainComponent,
-    LoginComponent,
     DetallesComponent,
     EditperfilComponent,
     AddGamesComponent,

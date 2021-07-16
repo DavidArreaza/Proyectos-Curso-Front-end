@@ -1,3 +1,7 @@
+a:hover{
+    cursor: pointer;
+}
+
 .header {
     height: 200px;
     background-image: url("https://i.imgur.com/nrFCOUB.jpg"); /*Imagen de fondo */
@@ -16,7 +20,7 @@
 .description{
     position: absolute;
     margin-top: 5px;
-    transform: translate(80%, -150%); /*Permite moder le texto*/
+    transform: translate(80%, -150%); /*Permite mover le texto*/
     text-align: center;
     color: white;
 }

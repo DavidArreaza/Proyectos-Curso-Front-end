@@ -1,10 +1,10 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="sidenav" mode="side">
-    <a class="filter mm"><img class="icon" alt="Inicio" src="../../assets/img/comienzo.svg" />Inicio</a>
-    <a class="filter"><img class="icon" alt="Estrategia" src="../../assets/img/estrategia.svg">Estrategia</a>
-    <a class="filter"><img class="icon" alt="Rol" src="../../assets/img/rol-juego.svg" />Rol</a>
-    <a class="filter"><img class="icon" alt="Puzzle" src="../../assets/img/rompecabezas.svg" />Puzzle</a>
-    <a class="filter"><img class="icon" alt="Juegos de Tablero" src="../../assets/img/juego-de-damas.svg" />Tablero</a>
+    <a class="filter mm" (click)="loadAllGames()"><img class="icon" alt="Inicio" src="../../assets/img/comienzo.svg" />Todos</a>
+    <a class="filter mt-1" (click)="filtroEstrategia()"><img class="icon" alt="Estrategia" src="../../assets/img/estrategia.svg">Estrategia</a>
+    <a class="filter mt-1" (click)="filtroRol()"><img class="icon" alt="Rol" src="../../assets/img/rol-juego.svg" />Rol</a>
+    <a class="filter mt-1" (click)="filtroPuzzle()"><img class="icon" alt="Puzzle" src="../../assets/img/rompecabezas.svg" />Puzzle</a>
+    <a class="filter mt-1" (click)="filtroTablero()"><img class="icon" alt="Juegos de Tablero" src="../../assets/img/juego-de-damas.svg" />Tablero</a>
   </mat-drawer>
 
   <div class="example-sidenav-content fluid">
@@ -22,7 +22,7 @@
 
       <div class="input-group mt-4">
         <button (click)="drawer.toggle()" mat-mini-fab color="primary"><mat-icon>menu</mat-icon></button>
-        <input type="search" class="form-control" placeholder="Buscar" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        <input (input)="onSearch($event)" type="search" class="form-control shadow" placeholder="Buscar" aria-label="Example text with button addon" aria-describedby="button-addon1">
       </div>
 
       <div class="row align-items-start">
@@ -50,3 +50,5 @@
   </div>
 
 </mat-drawer-container>
+
+<notifier-container></notifier-container>

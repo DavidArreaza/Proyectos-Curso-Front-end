@@ -15,7 +15,7 @@ export class ContentmainComponent implements OnInit {
   user : any;
   game : any;
   misGames: Array<Game> = [];
-  gamesSearch : Array<Game> = [];
+  filter = '';
   showFiller = false;
   isLoading = false;
   isOpen = false;
@@ -53,18 +53,85 @@ export class ContentmainComponent implements OnInit {
     this.router.navigate(["detalles/"+idGame]);
   }
 
-  filtro(){
+  filtroEstrategia(){
     this.gameService.readAllGames().subscribe(data => {
-      this.gamesSearch = [];
+      this.misGames = [];
+      data.forEach((doc : any) => {
+        let newGame: Game = doc.data();
+        newGame.id = doc.id;
+        if(newGame.categoria == "Estrategia"){
+          this.misGames.push(newGame);
+        }
+      })
+      if(this.misGames.length == 0){
+        this.notifier.notify('warning', 'No se han encontrado datos');
+      }
+    })
+  }
+
+  filtroRol(){
+    this.gameService.readAllGames().subscribe(data => {
+      this.misGames = [];
       data.forEach((doc : any) => {
         let newGame: Game = doc.data();
         newGame.id = doc.id;
         if(newGame.categoria == "Rol"){
-          this.gamesSearch.push(newGame);
+          this.misGames.push(newGame);
         }
       })
-      console.log(this.gamesSearch)
-    })
+      if(this.misGames.length == 0){
+        this.notifier.notify('warning', 'No se han encontrado datos');
+      }
+    });
+  }
+
+  filtroPuzzle(){
+    this.gameService.readAllGames().subscribe(data => {
+      this.misGames = [];
+      data.forEach((doc : any) => {
+        let newGame: Game = doc.data();
+        newGame.id = doc.id;
+        if(newGame.categoria == "Puzzle"){
+          this.misGames.push(newGame);
+        }
+      })
+      if(this.misGames.length == 0){
+        this.notifier.notify('warning', 'No se han encontrado datos');
+      }
+    });
+  }
+
+  filtroTablero(){
+    this.gameService.readAllGames().subscribe(data => {
+      this.misGames = [];
+      data.forEach((doc : any) => {
+        let newGame: Game = doc.data();
+        newGame.id = doc.id;
+        if(newGame.categoria == "Tablero"){
+          this.misGames.push(newGame);
+        }
+      })
+      if(this.misGames.length == 0){
+        this.notifier.notify('warning', 'No se han encontrado datos');
+      }
+    });
+  }
+
+  onSearch(event: any){ 
+    this.gameService.readAllGames().subscribe(data => {
+      this.misGames = [];
+      data.forEach((doc : any) => {
+        let newGame: Game = doc.data();
+        newGame.id = doc.id;
+        if(newGame.titulo.toUpperCase() == event.target.value.toUpperCase()){
+          this.misGames.push(newGame);
+        }
+      })
+      if(event.target.value == ''){
+        this.loadAllGames();
+      }
+    });
+
   }
 
 }

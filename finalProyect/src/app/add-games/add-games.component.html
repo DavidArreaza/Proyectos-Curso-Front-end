@@ -1,8 +1,8 @@
 <div [formGroup]="gameForm" class="form-floating shadow mt-4 md-2 mx-2">
   <div class="row justify-content-center">
-    <h3 *ngIf="isEdit == false">Crea tu partida</h3>
-    <h3 *ngIf="isEdit == true">Editar partida</h3>
-    <div class="col-6 mt-4 me-4 md-4">
+    <h1 class="mt-2" *ngIf="isEdit == false">Crea tu partida</h1>
+    <h1 class="mt-2" *ngIf="isEdit == true">Editar partida</h1>
+    <div class="col-lg-6 col-sm-12 mt-4 me-4 md-4">
       <div class="form-floating mb-3">
         <input type="text"  class="form-control" id="floatingInputTitulo" formControlName="titulo" placeholder="Parchís"/>
         <label for="floatingInputTitulo">Título del juego</label>
@@ -14,7 +14,7 @@
       </div>
 
       <div class="row">
-        <div class="col-4">
+        <div class="col-lg-4 col-md-4 mt-1">
           <div class="form-floating">
             <select class="form-select"id="floatingSelect"formControlName="categoria"aria-label="Floating label select example">
               <option selected value="Estrategia">Estrategia</option>
@@ -25,19 +25,19 @@
             <label for="floatingSelect">Categoría</label>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 mt-1">
           <div class="form-floating mb-3">
             <input type="number" class="form-control" id="floatingInputNumero" formControlName="jugadores" placeholder="Numero"/>
             <label for="floatingInputNumero">Número de jugadores</label>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4">
           <div class="form-floating mb-3">
             <input type="number" class="form-control" id="floatingInputDuracion" formControlName="duracion"placeholder="Duracion"/>
             <label for="floatingInputDuracion">Duración (min)</label>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 mt-1">
           <div class="form-floating">
             <select class="form-select" formControlName="localizacion" id="floatingSelect" required>
               <option selected disabled value="">Localización</option>
@@ -48,8 +48,8 @@
             <label for="floatingSelect" class="form-label">Ciudad</label>
           </div>
         </div>
-        <div class="col-4">
-          <div class="form-floating">
+        <div class="col-lg-4 mt-1">
+          <div class="form-floating mt-1">
             <select class="form-select" id="floatingSelect" formControlName="dificultad" aria-label="Floating label select example">
               <option selected value="Fácil">Fácil</option>
               <option value="Intermedio">Intermedio</option>
@@ -58,7 +58,7 @@
             <label for="floatingSelect">Dificultad del juego</label>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 mt-1">
           <div class="form-floating mb-3">
             <input type="date" class="form-control" id="floatingInputFecha" formControlName="date" placeholder="Fecha"/>
             <label for="floatingInputFecha">Fecha de la partida</label>
@@ -67,7 +67,7 @@
       </div>
     </div>
 
-    <div class="col-5 mt-4 me-4 md-4">
+    <div class="col-lg-5 mt-4 me-4 md-4">
       <div class="form-floating mb-3">
         <input type="text" class="form-control" id="floatingInput" formControlName="imagenes" placeholder="URL"/>
         <label for="floatingInput">URL imagen</label>
@@ -82,11 +82,14 @@
       <img [src]="downloadURL | async" class="img-thumbnail" alt="Imagen" />
     </div>
 
-    <div class="col-6 border">
-        <button *ngIf="isEdit == false" type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#aceptarModal">Crear</button>
-        <button *ngIf="isEdit == true"  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#aceptarModal">Guardar</button>  
-    </div>
+  </div>
 
+  <div class="row justify-content-end mt-2">
+    <div class="col-lg-6 d-grid gap-2 d-md-flex justify-content-md-end me-4 mb-2">
+      <button *ngIf="isEdit == false" type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#aceptarModal">Crear</button>
+      <button *ngIf="isEdit == true"  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#aceptarModal">Guardar</button>  
+      <button type="button" class="btn btn-warning" (click)="back()">Cancelar</button>
+    </div>
   </div>
 </div>
 
@@ -103,7 +106,7 @@
         <p *ngIf="isEdit == false">¿Desea crear esta partida?</p>
         <p *ngIf="isEdit == true">¿Desea aplicar los cambios realizados?</p>
         <div class="text-end">
-          <button type="button" class="btn btn-success me-2" (click)="saveGame()" *ngIf="isEdit == true"> Aceptar</button>
+          <button type="button" class="btn btn-success me-2" (click)="saveGame()" *ngIf="isEdit == false"> Aceptar</button>
           <button type="button" class="btn btn-success me-2" (click)="updateGame()" *ngIf="isEdit == true">Aceptar</button>
           <button type="button" class="btn btn-warning me-2" data-bs-dismiss="modal">Cancelar</button>
         </div>

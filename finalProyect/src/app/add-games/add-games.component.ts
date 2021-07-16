@@ -122,4 +122,8 @@ export class AddGamesComponent implements OnInit {
     })
   }
 
+  back(){
+    this.router.navigate(["home/"+this.uid]);
+  }
+
 }
