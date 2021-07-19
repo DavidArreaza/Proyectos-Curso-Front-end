@@ -2,7 +2,7 @@
   <div class="row justify-content-center shadow mt-4 md-2 mx-2">
     <div class="col-sm-12 col-md-5">
       
-      <div id="carouselExampleControls" class="carousel slide w-100" data-bs-ride="carousel">
+      <div *ngIf="miGame" id="carouselExampleControls" class="carousel slide w-100" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img [src]="miGame.imagenes" class="d-block w-100" alt="...">
@@ -26,7 +26,7 @@
 
     </div>
 
-    <div class="col-sm-12 col-md-7 text-align-center">
+    <div class="col-sm-12 col-md-7 text-align-center" *ngIf="miGame">
       <p class="text-center fs-1 my-4">{{miGame.titulo}}</p>
 
       <div class="row justify-content-center">
@@ -60,8 +60,8 @@
         </div>
       </div>
 
-      <div class="row justify-content-center mt-5">
-        <div class="col-6 text-center">Pubicación de: {{ user.displayName }} <img src={{user.photoURL}} alt="hugenerd" width="25" height="25" class="rounded-circle me-1"/></div>
+      <div *ngIf="owner" class="row justify-content-center mt-5" >
+        <div class="col-6 text-center">Pubicación de: {{ owner.displayName || miGame.idUser }} <img src={{owner.photoURL}} alt="Imagen" width="25" height="25" class="rounded-circle me-1"/> </div>
       </div>
 
       <div class="row justify-content-center mt-5">
