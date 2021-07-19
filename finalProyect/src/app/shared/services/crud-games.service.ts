@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Game } from '../models/game';
+import { User } from '../models/user';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -35,7 +36,12 @@ export class CrudGamesService {
     return this.fireStore.collection('games').doc(id).get();
   }
 
-  deleteGame(idGame:string){
-    return this.fireStore.collection('games').doc(idGame).delete();
+  deleteGame(id:string){
+    return this.fireStore.collection('games').doc(id).delete();
   }
+
+  readOwnerGamer(idUser: string){
+    return this.fireStore.collection('users').doc(idUser).get();
+  }
+
 }

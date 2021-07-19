@@ -28,6 +28,7 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
+      nick: user.nick
     };
     return this.fireStore.doc(`users/${user.uid}`).set(userData, {
       merge: true,
@@ -76,7 +77,7 @@ export class AuthService {
   signOut() {
     return this.fireAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['/']);
+      this.router.navigate(['home']);
     });
   }
 
