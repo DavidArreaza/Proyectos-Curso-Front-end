@@ -38,9 +38,10 @@
               <div class="card-body">
                   <h2 class="card-title text-center">{{game.titulo}}</h2>
                   <img [src]="game.imagenes" class="card-img-top imgcard" alt="Imagen juego"/>
-                  <p class="card-text">{{game.descripcion}}</p>
+                  <p class="card-text text-truncate">{{game.descripcion}}</p>
                   <div class="d-grid gap-2">
                     <button (click)="openGame(game.id)" class="btn btn-warning btn-lg shadow" type="button">Unirse</button>
+                    <!-- routerLink="/detalles/{{game.id}}"-->
                   </div>              
               </div>
           </div>

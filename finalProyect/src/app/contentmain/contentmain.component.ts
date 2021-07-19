@@ -27,8 +27,8 @@ export class ContentmainComponent implements OnInit {
   ngOnInit(): void {
 
     if(this.authService.isLoggedIn()){
-      //this.router.navigate(['/profile']);
       this.user = this.authService.userData();
+      this.router.navigate(['home/'+this.user.id]);
     }
     
     //this.user = this.authService.userData();
@@ -49,7 +49,7 @@ export class ContentmainComponent implements OnInit {
     this.isLoading = false;
   }
 
-  openGame(idGame : any){
+  openGame(idGame : any){ 
     this.router.navigate(["detalles/"+idGame]);
   }
 
@@ -123,14 +123,17 @@ export class ContentmainComponent implements OnInit {
       data.forEach((doc : any) => {
         let newGame: Game = doc.data();
         newGame.id = doc.id;
-        if(newGame.titulo.toUpperCase() == event.target.value.toUpperCase()){
+
+        if(newGame.titulo.toUpperCase().includes(event.target.value.toUpperCase())){
           this.misGames.push(newGame);
         }
+
       })
       if(event.target.value == ''){
         this.loadAllGames();
       }
     });
+    
 
   }
 
