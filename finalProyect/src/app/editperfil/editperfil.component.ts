@@ -25,7 +25,7 @@ export class EditperfilComponent implements OnInit {
       this.user = this.authService.userData();
       this.uid = this.authService.userData().uid;
       this.nick = this.authService.userData().nick;
-      console.log(this.user.displayName);
+      console.log(this.nick);
 
       this.mForm = this.fb.group({
         nick : ["", Validators.required]
