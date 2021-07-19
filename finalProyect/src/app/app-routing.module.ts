@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ContentmainComponent } from './contentmain/contentmain.component';
-
 import { DetallesComponent } from './detalles/detalles.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { EditperfilComponent } from './editperfil/editperfil.component';
@@ -10,9 +9,8 @@ import { AddGamesComponent } from './add-games/add-games.component';
 import { MispartidasComponent } from './mispartidas/mispartidas.component';
 
 const routes: Routes = [
-  {path: '', component: ContentmainComponent, pathMatch: "full"},
+  {path: 'home', component: ContentmainComponent},
   {path: 'home/:id', component: ContentmainComponent, canActivate: [AuthGuard]},
-
   {path: 'edit/:id', component: EditperfilComponent, canActivate: [AuthGuard]},
   {path: 'detalles/:id', component: DetallesComponent, canActivate: [AuthGuard]},
   {path: 'add', component: AddGamesComponent, canActivate: [AuthGuard]},
