@@ -16,14 +16,17 @@ export class BarranavComponent implements OnInit {
   logueado = false;
 
   constructor(private authService: AuthService, private router: Router) { 
-    this.uid = this.authService.userData().uid;
+    
   }
 
   ngOnInit(): void {
     if(this.authService.isLoggedIn()){
       this.user = this.authService.userData();
       this.router.navigate(['home/'+this.user.uid]);
+      this.uid = this.authService.userData().uid;
       this.logueado = true;
+    }else{
+      this.router.navigate(['home']);
     }
   }
 
