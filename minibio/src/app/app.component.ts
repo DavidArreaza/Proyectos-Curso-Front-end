@@ -18,26 +18,21 @@ export class AppComponent implements OnInit {
   user = {
     image: "../assets/img/imgyo.jpg",
     username: "David Arreaza Gil",
-    description: "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma. Y aprendiendo Front-end",
+    description: "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma. Desarrollor web con Angular. Aprendiendo más y más",
     links: [
       {
-        link: "https://github.com",
+        link: "https://github.com/DavidArreaza",
         title: "Mis proyectos de github",
         icon: faGithub
       },
       {
-        link: "https://www.instagram.com/",
-        title: "Mi Instagram",
-        icon: faInstagram
-      },
-      {
-        link: "https://www.linkedin.com",
+        link: "www.linkedin.com/in/davidarreazagil",
         title: "Mi LinkedIn",
         icon: faLinkedin
       },
       {
-        link: "https://www.google.com",
-        title: "Portfolio",
+        link: "https://drive.google.com/file/d/1tkKstxCr5RdLfJyGDVwhf7rlIWYqDblB/view?usp=sharing",
+        title: "Currículum Vitae",
         icon: faIdCard
       }
     ]

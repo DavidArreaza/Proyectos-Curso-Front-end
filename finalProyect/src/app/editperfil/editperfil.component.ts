@@ -43,9 +43,9 @@ export class EditperfilComponent implements OnInit {
       this.notifier.notify('success', "Datos actualizados")
       this.authService.updateLocalData(this.mForm.value);
 
-      setTimeout(function(){
-        window.location.reload(); //Solución rápida
-      }, 500)
+        setTimeout(function(){
+          window.location.reload(); //Solución rápida
+        }, 500)
       
     }).catch(error => {
       this.notifier.notify('error', "Ha ocurrido un error")
