@@ -101,13 +101,12 @@ export class AddGamesComponent implements OnInit {
           this.downloadURL.subscribe(data => {
             this.gameForm.patchValue({
               imagenes: data
-            }), console.log("ADFAFAF "+ this.misFotos)
+            }), console.log("INFO "+ this.misFotos)
           })
         })
      )
     .subscribe()
   }
-
 
   updateGame(){
     if(this.gameForm.invalid){

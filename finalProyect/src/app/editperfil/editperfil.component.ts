@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotifierService } from 'angular-notifier';
 import listaCiudades from 'src/assets/json/ciudades.json';
+import { Game } from '../shared/models/game';
 import { User } from '../shared/models/user';
 import { AuthService } from '../shared/services/auth.service';
 import { CrudGamesService } from '../shared/services/crud-games.service';
@@ -14,18 +15,17 @@ import { CrudGamesService } from '../shared/services/crud-games.service';
 export class EditperfilComponent implements OnInit {
 
   Ciudades : any = listaCiudades;
-  uid = '';
+  name = '';
   nick : any = '';
   mForm: FormGroup;
   user : any;
+  misGames: Array<Game> = [];
+  contador = 0;
 
   constructor(private authService : AuthService, private gameService : CrudGamesService,
     private fb: FormBuilder, private notifier : NotifierService) {
 
       this.user = this.authService.userData();
-      this.uid = this.authService.userData().uid;
-      this.nick = this.authService.userData().nick;
-      console.log(this.nick);
 
       this.mForm = this.fb.group({
         nick : ["", Validators.required]
@@ -33,6 +33,14 @@ export class EditperfilComponent implements OnInit {
      }
 
   ngOnInit(): void {
+    this.name = this.user.displayName;
+    const nick = this.user.nick;
+    console.log(nick)
+    this.mForm.patchValue({
+      nick: this.nick || this.name
+    });
+
+    this.countGames();
   }
 
   saveProfile(){
@@ -51,6 +59,21 @@ export class EditperfilComponent implements OnInit {
     }).catch(error => {
       this.notifier.notify('error', "Ha ocurrido un error")
     })
+  }
+
+  countGames(){
+    this.gameService.readAllGames().subscribe(data => {
+      this.misGames = [];
+      data.forEach((doc : any) => {
+        let newGame: Game = doc.data();
+        newGame.id = doc.id;
+        if(newGame.idUser == this.authService.userData().uid){
+          this.misGames.push(newGame);
+          this.contador = this.misGames.length;
+        }
+      })
+      console.log(this.contador)
+    });
   }
 
 }

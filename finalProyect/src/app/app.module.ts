@@ -24,6 +24,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { MatIconModule } from '@angular/material/icon';
     NotifierModule.withConfig(),
     FontAwesomeModule,
     BrowserAnimationsModule,
-    MatSidenavModule, MatCardModule, MatButtonModule, MatIconModule
+    MatSidenavModule, MatCardModule, MatButtonModule, MatIconModule, MatProgressSpinnerModule
   ],
   providers: [AuthService,
     {provide: BUCKET, useValue: environment.firebase.storageBucket}],

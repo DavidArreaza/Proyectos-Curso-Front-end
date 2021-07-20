@@ -53,12 +53,12 @@
 
     <div class="col-md-7 col-xl-7">
 
-      <h3>Editar perfil</h3>
+      <h1>Perfil</h1>
 
       <div [formGroup]="mForm" class="form-floating mt-4 d-flex justify-content-start"> 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInputNombre" formControlName="nick" placeholder="NombreBio" />
-          <label for="floatingInputNombre">{{user.nick || user.displayName}}</label>
+          <input type="text" class="form-control" id="floatingInputNombre" formControlName="nick" placeholder="Nick" />
+          <label for="floatingInputNombre">{{nick || name}}</label>
         </div>
       </div>
     </div>
