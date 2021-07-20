@@ -1,74 +1,35 @@
-
-
-<!--<div class="container">
-    <h2 class="text-left">Edita tu perfil</h2>
-<form class="row g-3">
-    <div class="col-md-4">
-      <label for="validationDefault01" class="form-label">{{user.nick}}</label>
-      <input type="text" class="form-control" id="validationDefault01" placeholder="Mark Otto" required>
-    </div>
-    <div class="col-md-4">
-      <label for="validationDefault02" class="form-label">Email</label>
-      <input type="text" class="form-control" id="validationDefault02" placeholder="email@email.com" required>
-    </div>
-    <div class="col-md-4">
-      <label for="validationDefaultUsername" class="form-label">Nombre Usuario</label>
-      <div class="input-group">
-        <span class="input-group-text" id="inputGroupPrepend2">@</span>
-        <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" placeholder="user123" required>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <label for="validationDefault03" class="form-label">Ciudad</label>
-      <input type="text" class="form-control" id="validationDefault03" required>
-    </div>
-    <div class="col-md-4">
-        <label for="validationDefault04" class="form-label">State</label>
-        <select class="form-select" id="validationDefault04" required>
-          <option selected disabled value="">Choose...</option>
-          <option *ngFor="let ciudad of Ciudades" value={{ciudad.id}}>{{ciudad.nm}}</option>
-        </select>
-    </div>
-    <div class="col-12">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-        <label class="form-check-label" for="invalidCheck2">
-          Acepto los términos y condiciones
-        </label>
-      </div>
-    </div>
-    <div class="col-12">
-      <button class="btn btn-primary" type="submit">Crear cuenta</button>
-    </div>
-  </form>
-</div>-->
-
-<div class="border border-5 border-end-0 border-success mt-2 me-2 md-2">
-
-  <div class="row align-items-center">
-
-    <div class="col-md-5 col-xl-5 d-flex justify-content-center">
-      <img src="{{user.photoURL}}">
+  <div class="row text-center shadow my-4 mx-4">
+    <p class="fs-1 my-4">Perfil</p>
+    <div *ngIf="owner" class="col-md-5 col-xl-5 d-flex justify-content-center mb-2 border">
+      <img class="mb-4" src="{{owner.photoURL}}">
     </div>
 
-    <div class="col-md-7 col-xl-7">
+    <div class="col-md-7 col-xl-7 text-center">
 
-      <h1>Perfil</h1>
-
-      <div [formGroup]="mForm" class="form-floating mt-4 d-flex justify-content-start"> 
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInputNombre" formControlName="nick" placeholder="Nick" />
-          <label for="floatingInputNombre">{{nick || name}}</label>
+      <div *ngIf="owner" class="row align-items-center">
+        <div class="col-12 text-center">
+          <p>{{ owner.displayName }}</p>
+        </div>
+        <div class="col-6">
+          <p>{{contador}} partidas creadas</p>
+        </div>
+        <div class="col-6">
+          <ul class="list-group list-group-flush" *ngFor="let game of misGames">
+            <li class="list-group-item border-top">{{game.titulo}}</li>
+          </ul>
+        </div>
+        <div class="col-12">
+          <div class="stars">
+            <form action=""> <input class="star star-5" id="star-5" type="radio" name="star" /> <label class="star star-5" for="star-5"></label> <input class="star star-4" id="star-4" type="radio" name="star" /> <label class="star star-4" for="star-4"></label> <input class="star star-3" id="star-3" type="radio" name="star" /> <label class="star star-3" for="star-3"></label> <input class="star star-2" id="star-2" type="radio" name="star" /> <label class="star star-2" for="star-2"></label> <input class="star star-1" id="star-1" type="radio" name="star" /> <label class="star star-1" for="star-1"></label> </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="d-flex justify-content-end">
-    <button (click)="saveProfile()" type="button" class="btn btn-success me-2 md-2">Guardar</button>
+    <button type="button" class="btn btn-success me-2 md-2">Guardar</button>
     <button type="button" class="btn btn-secondary me-2 md-2">Cancelar</button>  
   </div>
   
-</div>
-
 <notifier-container></notifier-container>

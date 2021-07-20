@@ -61,7 +61,9 @@
       </div>
 
       <div *ngIf="owner" class="row justify-content-center mt-5" >
-        <div class="col-6 text-center">Pubicación de: {{ owner.displayName || miGame.idUser }} <img src={{owner.photoURL}} alt="Imagen" width="25" height="25" class="rounded-circle me-1"/> </div>
+        <div class="col-6 text-center">
+          <a routerLink="/perfil/{{owner.uid}}">Pubicación de: {{ owner.displayName || miGame.idUser }} <img src={{owner.photoURL}} alt="Imagen" width="25" height="25" class="rounded-circle me-1"/></a>
+        </div>
       </div>
 
       <div class="row justify-content-center mt-5">

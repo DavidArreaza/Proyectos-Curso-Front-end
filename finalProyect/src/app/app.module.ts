@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BarranavComponent } from './barranav/barranav.component';
-import { MenulateralComponent } from './menulateral/menulateral.component';
 import { ContentmainComponent } from './contentmain/contentmain.component';
 import { DetallesComponent } from './detalles/detalles.component';
 import { AngularFireModule } from '@angular/fire';
@@ -30,7 +29,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   declarations: [
     AppComponent,
     BarranavComponent,
-    MenulateralComponent,
     ContentmainComponent,
     DetallesComponent,
     EditperfilComponent,
