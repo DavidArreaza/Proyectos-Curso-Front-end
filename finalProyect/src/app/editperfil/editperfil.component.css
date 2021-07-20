@@ -1,3 +1,5 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
 img{
     position: relative;
     /*width: 200px;
@@ -7,6 +9,9 @@ img{
     height: 280px;
     border-radius: 50%;
     margin-top: 62px;
+}
+.cont{
+    background: linear-gradient(to right, whitesmoke, white);
 }
 
 div.stars {
@@ -19,7 +24,7 @@ div.stars {
 }
 
 input.star {
-    display: none
+    display: none;
 }
 
 label.star {
@@ -50,6 +55,6 @@ label.star:hover {
 }
 
 label.star:before {
-    content: '\f006';
-    font-family: FontAwesome
+    font-family: "Font Awesome 5 Free";
+    content: "\f006";    
 }

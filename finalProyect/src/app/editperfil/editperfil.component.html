@@ -1,26 +1,37 @@
-  <div class="row text-center shadow my-4 mx-4">
+  <div class="row text-center rounded shadow my-4 mx-4 cont">
     <p class="fs-1 my-4">Perfil</p>
     <div *ngIf="owner" class="col-md-5 col-xl-5 d-flex justify-content-center mb-2 border">
       <img class="mb-4" src="{{owner.photoURL}}">
     </div>
 
-    <div class="col-md-7 col-xl-7 text-center">
+    <div class="col-md-7 col-xl-7 text-center mt-4">
 
       <div *ngIf="owner" class="row align-items-center">
         <div class="col-12 text-center">
-          <p>{{ owner.displayName }}</p>
+          <p class="fs-3">{{ owner.displayName }}</p>
         </div>
-        <div class="col-6">
+        <div class="col-6 mt-4">
           <p>{{contador}} partidas creadas</p>
         </div>
-        <div class="col-6">
+        <div class="col-6 mt-4">
           <ul class="list-group list-group-flush" *ngFor="let game of misGames">
             <li class="list-group-item border-top">{{game.titulo}}</li>
           </ul>
         </div>
-        <div class="col-12">
+        <div class="col-12 mt-4">
           <div class="stars">
-            <form action=""> <input class="star star-5" id="star-5" type="radio" name="star" /> <label class="star star-5" for="star-5"></label> <input class="star star-4" id="star-4" type="radio" name="star" /> <label class="star star-4" for="star-4"></label> <input class="star star-3" id="star-3" type="radio" name="star" /> <label class="star star-3" for="star-3"></label> <input class="star star-2" id="star-2" type="radio" name="star" /> <label class="star star-2" for="star-2"></label> <input class="star star-1" id="star-1" type="radio" name="star" /> <label class="star star-1" for="star-1"></label> </form>
+            <form action=""> 
+              <input class="star star-5" id="star-5" type="radio" name="star" />
+              <label class="star star-5" for="star-5"></label>
+              <input class="star star-4" id="star-4" type="radio" name="star" /> 
+              <label class="star star-4" for="star-4"></label>
+              <input class="star star-3" id="star-3" type="radio" name="star" /> 
+              <label class="star star-3" for="star-3"></label> 
+              <input class="star star-2" id="star-2" type="radio" name="star" /> 
+              <label class="star star-2" for="star-2"></label> 
+              <input class="star star-1" id="star-1" type="radio" name="star" /> 
+              <label class="star star-1" for="star-1"></label> 
+            </form>
           </div>
         </div>
       </div>
