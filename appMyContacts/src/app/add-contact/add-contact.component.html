@@ -1,0 +1,74 @@
+<navbar></navbar>
+
+<div class="container shadow mt-4">
+  <div class="row justify-content-center">
+
+      <div class="col-md-5 col-xl-5 border text-center">
+        <img *ngIf="isEdit" [src]="contact.img" class="img">
+        <div *ngIf="!isEdit">
+          <img *ngIf="foto == false" src="../..//assets/img/user.png">
+          <img *ngIf="foto == true" [src]="downloadURL | async" class="img-thumbnail" alt="Imagen" />
+        </div>
+        <div class="form-floating mt-3">
+          <!--<input class="form-control" type="file" id="formFileMultiple" multiple (change)="uploadFile($event)" formControlName="imagenes">-->
+          <input type="file" (change)="uploadFile($event)" multiple />
+          <div>{{ uploadPercent | async }}</div>
+        </div>
+
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped" role="progressbar" [ngStyle]="{ width: percent + '%' }" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+
+      </div>
+
+      <div class="col-md-7 col-xl-7 mt-2">
+
+        <h3 *ngIf="!isEdit">Añade un contacto nuevo</h3>
+        <h3 *ngIf="isEdit">Editar contacto nuevo</h3>
+
+        <div [formGroup]="cForm" class="form-floating mt-4"> 
+          
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInputNombre" formControlName="nombre" placeholder="NombreBio" />
+            <label for="floatingInputNombre">Nombre</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="floatingInputNumero" formControlName="numero" placeholder="numero" />
+            <label for="floatingInputNumero">Número</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInputUrl" formControlName="img" placeholder="URL" />
+            <label for="floatingInputUrl">URL imagen</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInputEmail" formControlName="email" placeholder="name@example.com" />
+            <label for="floatingInputEmail">Email</label>
+          </div>
+
+          <div class="input-group mb-3">
+            <select class="form-select-sm" aria-label="Default select example" formControlName="grupo">
+              <option selected disabled>Grupo</option>
+              <option value="amigos">Amigos</option>
+              <option value="familia">Familia</option>
+              <option value="trabajo">Trabajo</option>
+              <option value="otros">Otros</option>
+            </select>
+          </div>
+
+        </div>
+        <div *ngIf="!isEdit">
+          <button (click)="crearContact()" type="submit" class="btn btn-primary me-2">Guardar</button>
+          <button (click)="cancelar()" type="submit" class="btn btn-danger me-2">Cancelar</button>
+        </div>
+        <div *ngIf="isEdit">
+          <button (click)="actualizarContact()" type="submit" class="btn btn-primary me-2">Actualizar</button>
+          <button (click)="cancelar()" type="submit" class="btn btn-danger me-2">Cancelar</button>
+        </div>
+      </div>
+  </div>
+</div>
+
+<notifier-container></notifier-container>
