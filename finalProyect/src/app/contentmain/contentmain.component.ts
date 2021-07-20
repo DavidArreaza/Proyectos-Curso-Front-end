@@ -28,7 +28,8 @@ export class ContentmainComponent implements OnInit {
 
     if(this.authService.isLoggedIn()){
       this.user = this.authService.userData();
-      this.router.navigate(['home/'+this.user.id]);
+      this.router.navigate(['home/'+this.user.uid]);
+
     }
     
     //this.user = this.authService.userData();
