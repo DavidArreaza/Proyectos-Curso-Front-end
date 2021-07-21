@@ -11,8 +11,8 @@ import { MispartidasComponent } from './mispartidas/mispartidas.component';
 const routes: Routes = [
   {path: 'home', component: ContentmainComponent},
   {path: 'home/:id', component: ContentmainComponent, canActivate: [AuthGuard]},
-  {path: 'perfil/:id', component: EditperfilComponent, canActivate: [AuthGuard]},
-  {path: 'detalles/:id', component: DetallesComponent, canActivate: [AuthGuard]},
+  {path: 'perfil/:id', component: EditperfilComponent},
+  {path: 'detalles/:id', component: DetallesComponent},
   {path: 'add', component: AddGamesComponent, canActivate: [AuthGuard]},
   {path: 'editGame/:id', component: AddGamesComponent, canActivate: [AuthGuard]},
   {path: 'games', component: MispartidasComponent, canActivate: [AuthGuard]}

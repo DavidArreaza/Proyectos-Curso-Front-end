@@ -30,7 +30,7 @@ export class DetallesComponent implements OnInit {
     private route : ActivatedRoute) {}
 
   ngOnInit(): void {
-
+    console.log("ENTRO")
     if(this.authService.isLoggedIn()){
       //this.router.navigate(['/profile']);
       //this.user = this.authService.userData();
@@ -43,9 +43,12 @@ export class DetallesComponent implements OnInit {
   }
 
   readGame(){
+    console.log(this.idGame);
     this.gameService.readOneGame(this.idGame).subscribe(data =>{ 
       this.miGame = data.data() as Game;
       this.miGame.id = data.id;
+      console.log(data.id)
+      console.log(this.miGame.idUser)
       this.readOwner(this.miGame.idUser);
     });
   }
