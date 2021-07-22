@@ -8,6 +8,8 @@ import { finalize } from 'rxjs/operators';
 import { NotifierService } from 'angular-notifier';
 import { AuthService } from '../shared/services/auth.service';
 import listaCiudades from 'src/assets/json/ciudades.json';
+import { Game } from '../shared/models/game';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'add-games',
@@ -18,6 +20,7 @@ export class AddGamesComponent implements OnInit {
 
   
   gameForm : FormGroup;
+  faArrowLeft = faArrowLeft;
   uploadPercent: Observable<any> | undefined;
   downloadURL: Observable<string> | undefined;
   downloadURLImg2: Observable<string> | undefined;
@@ -26,6 +29,7 @@ export class AddGamesComponent implements OnInit {
   Ciudades : any = listaCiudades;
   idGame = '';
   isEdit = false;
+  miGame : any;
 
   constructor(private fb: FormBuilder, private gameService: CrudGamesService, private router: Router, private authService: AuthService,
     private route: ActivatedRoute, private storage : AngularFireStorage, private notifier: NotifierService) {
@@ -50,9 +54,9 @@ export class AddGamesComponent implements OnInit {
       if(this.idGame){
         this.isEdit = true;
         this.gameService.readOneGame(this.idGame).subscribe(data => {
-          const migame : any = data.data();
-          migame.id = data.id;
-          this.gameForm.patchValue(migame);
+          this.miGame = data.data() as Game;
+          this.miGame.id = data.id;
+          this.gameForm.patchValue(this.miGame);
         })
       }
       
@@ -77,7 +81,7 @@ export class AddGamesComponent implements OnInit {
     
     this.gameService.createGame(this.gameForm.value).then(success =>{
       this.notifier.notify('success', 'Todo OK!');
-      this.router.navigate(["/home/"+this.uid]);
+      this.router.navigate(["home/"+this.uid]);
     }).catch(error => {
       this.notifier.notify('error', 'Error');
     });
@@ -142,7 +146,7 @@ export class AddGamesComponent implements OnInit {
   }
 
   back(){
-    this.router.navigate(["home/"+this.uid]);
+      this.router.navigate(["home/"+this.uid]);
   }
 
 }

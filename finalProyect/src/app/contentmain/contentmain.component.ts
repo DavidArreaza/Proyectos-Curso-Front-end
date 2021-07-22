@@ -29,10 +29,8 @@ export class ContentmainComponent implements OnInit {
     if(this.authService.isLoggedIn()){
       this.user = this.authService.userData();
       this.router.navigate(['home/'+this.user.uid]);
-
     }
     
-    //this.user = this.authService.userData();
     this.loadAllGames();
   }
 
@@ -41,7 +39,6 @@ export class ContentmainComponent implements OnInit {
     this.gameService.readAllGames().subscribe( data => {
       this.misGames = [];
       data.forEach((doc : any) => {
-        //console.log(doc.id, "=>", doc.data());
         let newGame: Game = doc.data();
         newGame.id = doc.id;
         this.misGames.push(newGame);

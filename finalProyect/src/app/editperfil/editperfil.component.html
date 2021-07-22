@@ -5,7 +5,6 @@
     </div>
 
     <div class="col-md-7 col-xl-7 mt-4">
-
       <div *ngIf="owner" class="row">
         <div class="col-12 text-center">
           <p class="fs-3">{{ owner.displayName }}</p>
@@ -19,16 +18,12 @@
               </div>
               <span class="badge bg-warning rounded-pill"><fa-icon [icon]="faArrowRight"></fa-icon></span>
           </ul>
+          <div class="align-items-end mt-4">
+            <button (click)="back()" class="btn btn-dark">Volver</button>
+          </div>
         </div>
-
-
       </div>
     </div>
-  </div>
-
-  <div class="d-flex justify-content-end">
-    <button type="button" class="btn btn-success me-2 md-2">Guardar</button>
-    <button type="button" class="btn btn-secondary me-2 md-2">Cancelar</button>  
   </div>
   
 <notifier-container></notifier-container>

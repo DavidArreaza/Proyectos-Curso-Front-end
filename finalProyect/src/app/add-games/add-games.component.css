@@ -4,5 +4,9 @@ h1{
 }
 
 img{
-    max-height: 180px;
+    max-height: 140px;
+}
+
+.container-fluid{
+    background: linear-gradient(to right, whitesmoke, white);
 }

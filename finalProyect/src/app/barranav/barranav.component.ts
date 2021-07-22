@@ -39,7 +39,7 @@ export class BarranavComponent implements OnInit {
       this.router.navigate(['home/'+this.user.uid])
       this.logueado = true;
     }).catch(error => {
-      console.error("Error en el login")
+      console.error("Error en el login");
     })
   }
 
