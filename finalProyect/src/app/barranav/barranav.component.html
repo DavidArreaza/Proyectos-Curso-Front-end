@@ -17,8 +17,8 @@
       </button>
 
       <button *ngIf="logueado == true" class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src={{user.photoURL}} alt="hugenerd" width="25" height="25" class="rounded-circle me-1"/>
-        {{user.nick || user.displayName}}
+        <img src={{user.photoURL}} width="25" height="25" class="rounded-circle me-1"/>
+        {{user.displayName}}
       </button>
 
       <ul *ngIf="logueado == true" class="dropdown-menu" aria-labelledby="dropdownMenuLink">

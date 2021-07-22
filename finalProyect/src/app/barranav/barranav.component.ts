@@ -36,7 +36,6 @@ export class BarranavComponent implements OnInit {
 
   login(){
     this.authService.googleAuth().then( success => {
-      const uid = this.authService.userData().uid
       this.router.navigate(['home/'+this.user.uid])
       this.logueado = true;
     }).catch(error => {

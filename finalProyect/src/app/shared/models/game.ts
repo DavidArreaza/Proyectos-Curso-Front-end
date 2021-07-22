@@ -9,5 +9,6 @@ export class Game {
   localizacion: string = '';
   date: string = '';
   imagenes: string = '';
+  imaganes2: string = '';
   idUser :string = '';
 }

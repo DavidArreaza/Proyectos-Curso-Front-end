@@ -16,7 +16,6 @@ import { User } from '../shared/models/user';
 export class DetallesComponent implements OnInit {
 
   idGame : string = '';
-  //user : any;
   owner : any;
   miGame : any;
   faUser = faUser;
@@ -25,15 +24,13 @@ export class DetallesComponent implements OnInit {
   faTachometerAlt = faTachometerAlt;
   faIndent = faIndent;
   faMapPin = faMapPin;
+  imgs : string[] = [];
 
   constructor(private authService: AuthService, private gameService: CrudGamesService,
     private route : ActivatedRoute) {}
 
   ngOnInit(): void {
-    console.log("ENTRO")
     if(this.authService.isLoggedIn()){
-      //this.router.navigate(['/profile']);
-      //this.user = this.authService.userData();
       this.idGame = this.route.snapshot.paramMap.get('id') as string; //Id del juego
       this.readGame();
     }else{
@@ -43,12 +40,11 @@ export class DetallesComponent implements OnInit {
   }
 
   readGame(){
-    console.log(this.idGame);
     this.gameService.readOneGame(this.idGame).subscribe(data =>{ 
       this.miGame = data.data() as Game;
       this.miGame.id = data.id;
-      console.log(data.id)
-      console.log(this.miGame.idUser)
+      this.imgs.push(this.miGame.imgagenes);
+      this.imgs.push(this.miGame.imgagenes2);
       this.readOwner(this.miGame.idUser);
     });
   }

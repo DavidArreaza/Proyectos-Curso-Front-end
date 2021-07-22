@@ -2,23 +2,20 @@
   <div class="row justify-content-center shadow mt-4 md-2 mx-2">
     <div class="col-sm-12 col-md-5">
       
-      <div *ngIf="miGame" id="carouselExampleControls" class="carousel slide w-100" data-bs-ride="carousel">
+      <div *ngIf="miGame" id="arouselExampleInterval" class="carousel slide w-100" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          <div class="carousel-item active" data-bs-interval="3000">
             <img [src]="miGame.imagenes" class="d-block w-100" alt="...">
           </div>
-          <div class="carousel-item">
-            <img src="../../assets/img/206-500x500.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="../../assets/img/451-500x500.jpg" class="d-block w-100" alt="..."> 
+          <div class="carousel-item" data-bs-interval="3000">
+            <img [src]="miGame.imagenes2" class="d-block w-100" alt="...">
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#arouselExampleInterval" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#arouselExampleInterval" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
@@ -62,12 +59,12 @@
 
       <div *ngIf="owner" class="row justify-content-center mt-5" >
         <div class="col-6 text-center">
-          <a routerLink="/perfil/{{owner.uid}}">Pubicación de: {{ owner.displayName || miGame.idUser }} <img src={{owner.photoURL}} alt="Imagen" width="25" height="25" class="rounded-circle me-1"/></a>
+          <a routerLink="/perfil/{{owner.uid}}">Pubicación de: {{ owner.displayName }} <img src={{owner.photoURL}} alt="Imagen" width="25" height="25" class="rounded-circle ms-3"/></a>
         </div>
       </div>
 
-      <div class="row justify-content-center mt-5">
-        <div class="col-6 text-center d-grid gap-2">
+      <div class="row justify-content-center mt-3">
+        <div class="col-6 text-center d-grid gap-2 mb-3">
           <button type="button" class="btn btn-success">Jugar</button>
         </div>
       </div>

@@ -4,8 +4,8 @@ import { NotifierService } from 'angular-notifier';
 import { Game } from '../shared/models/game';
 import { AuthService } from '../shared/services/auth.service';
 import { CrudGamesService } from '../shared/services/crud-games.service';
-import { faStar } from '@fortawesome/free-regular-svg-icons';
-import { ActivatedRoute } from '@angular/router';
+import { faArrowRight, faStar } from '@fortawesome/free-solid-svg-icons';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../shared/models/user';
 
 @Component({
@@ -20,10 +20,12 @@ export class EditperfilComponent implements OnInit {
   idUserGame = '';
   misGames: Array<Game> = [];
   contador = 0;
+
+  faArrowRight = faArrowRight;
   faStar = faStar;
 
   constructor(private authService : AuthService, private gameService : CrudGamesService,
-    private fb: FormBuilder, private notifier : NotifierService, private route: ActivatedRoute) {
+    private fb: FormBuilder, private notifier : NotifierService, private route: ActivatedRoute, private router: Router) {
 
       //this.user = this.authService.userData();
       this.idUserGame = this.route.snapshot.paramMap.get('id') as string;
@@ -33,25 +35,6 @@ export class EditperfilComponent implements OnInit {
     this.readOwner(this.idUserGame);
     this.readAllGamesUser();
   }
-
-  /*saveProfile(){
-    if(this.mForm.invalid){
-      this.notifier.notify('error', "El nombre introducido es incorrecto");
-      return;
-    }
-    this.authService.updateIdProfile(this.mForm.value).then(success =>{
-      this.notifier.notify('success', "Datos actualizados")
-      this.authService.updateLocalData(this.mForm.value);
-
-        setTimeout(function(){
-          window.location.reload(); //Solución rápida
-        }, 500)
-      
-    }).catch(error => {
-      this.notifier.notify('error', "Ha ocurrido un error")
-    })
-  }*/
-
 
   readAllGamesUser(){
     this.gameService.readAllGames().subscribe(data => {
@@ -76,5 +59,10 @@ export class EditperfilComponent implements OnInit {
       }
     })
   }
+  
+  openGame(idGame : any){ 
+    this.router.navigate(["detalles/"+idGame]);
+  }
+
 
 }

@@ -36,12 +36,11 @@
         <div class="col-lg-3 col-md-3 col-sm-12 mt-3" *ngFor="let game of misGames">
           <div class="card my-2 mx-auto">
               <div class="card-body">
-                  <h2 class="card-title text-center">{{game.titulo}}</h2>
-                  <img [src]="game.imagenes" class="card-img-top imgcard" alt="Imagen juego"/>
-                  <p class="card-text text-truncate">{{game.descripcion}}</p>
+                  <h1 class="card-title fw-bold text-center">{{game.titulo}}</h1>
+                  <img [src]="game.imagenes" class="card-img-top imgcard mb-2" alt="Imagen juego"/>
+                  <p class="card-text mt-2">{{game.descripcion}}</p>
                   <div class="d-grid gap-2">
                     <button (click)="openGame(game.id)" class="btn btn-warning btn-lg shadow" type="button">Unirse</button>
-                    <!-- routerLink="/detalles/{{game.id}}"-->
                   </div>              
               </div>
           </div>

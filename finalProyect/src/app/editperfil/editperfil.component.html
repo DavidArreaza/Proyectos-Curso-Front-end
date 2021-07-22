@@ -1,39 +1,27 @@
-  <div class="row text-center rounded shadow my-4 mx-4 cont">
-    <p class="fs-1 my-4">Perfil</p>
-    <div *ngIf="owner" class="col-md-5 col-xl-5 d-flex justify-content-center mb-2 border">
-      <img class="mb-4" src="{{owner.photoURL}}">
+  <div class="row rounded shadow my-4 mx-4 cont">
+    <p class="fs-1 my-4 text-center">Perfil</p>
+    <div *ngIf="owner" class="col-md-5 col-xl-5 d-flex justify-content-center mb-4">
+      <img class="shadow mb-4" src="{{owner.photoURL}}">
     </div>
 
-    <div class="col-md-7 col-xl-7 text-center mt-4">
+    <div class="col-md-7 col-xl-7 mt-4">
 
-      <div *ngIf="owner" class="row align-items-center">
+      <div *ngIf="owner" class="row">
         <div class="col-12 text-center">
           <p class="fs-3">{{ owner.displayName }}</p>
         </div>
-        <div class="col-6 mt-4">
-          <p>{{contador}} partidas creadas</p>
-        </div>
-        <div class="col-6 mt-4">
+        <div class="col-12 mt-4">
+          <p class="fs-5">Partidas creadas: {{contador}} </p>
           <ul class="list-group list-group-flush" *ngFor="let game of misGames">
-            <li class="list-group-item border-top">{{game.titulo}}</li>
+            <li (click)="openGame(game.id)" class="list-group-item d-flex justify-content-between align-items-start border-bottom">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">{{game.titulo}}</div>
+              </div>
+              <span class="badge bg-warning rounded-pill"><fa-icon [icon]="faArrowRight"></fa-icon></span>
           </ul>
         </div>
-        <div class="col-12 mt-4">
-          <div class="stars">
-            <form action=""> 
-              <input class="star star-5" id="star-5" type="radio" name="star" />
-              <label class="star star-5" for="star-5"></label>
-              <input class="star star-4" id="star-4" type="radio" name="star" /> 
-              <label class="star star-4" for="star-4"></label>
-              <input class="star star-3" id="star-3" type="radio" name="star" /> 
-              <label class="star star-3" for="star-3"></label> 
-              <input class="star star-2" id="star-2" type="radio" name="star" /> 
-              <label class="star star-2" for="star-2"></label> 
-              <input class="star star-1" id="star-1" type="radio" name="star" /> 
-              <label class="star star-1" for="star-1"></label> 
-            </form>
-          </div>
-        </div>
+
+
       </div>
     </div>
   </div>

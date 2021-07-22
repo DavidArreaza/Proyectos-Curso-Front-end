@@ -11,21 +11,12 @@ export class CrudGamesService {
 
   constructor(private fireStore: AngularFirestore, private authService: AuthService) { }
 
-  createGame(data: Game){
+  createGame(data: Game){ 
     return this.fireStore.collection('games').add(data);
   }
 
   readAllGames(){
-    /*return this.fireStore.collection('minibios').get();*/
-    //const uid = this.authService.userData().uid;
     return this.fireStore.collection('games').get()
-  }
-
-  readGamesUser(id : string){ //Corregir
-    /*return this.fireStore.collection('minibios').get();*/
-    //const uid = this.authService.userData().uid;
-    //return this.fireStore.collection('games').doc(uid).collection('games').get()
-    //return this.fireStore.collection('games').doc(id).get();
   }
 
   updateGame(id: string, data: Game){
