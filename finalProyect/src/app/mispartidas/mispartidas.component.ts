@@ -5,6 +5,7 @@ import { AuthService } from '../shared/services/auth.service';
 import { CrudGamesService } from '../shared/services/crud-games.service';
 import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
+import { User } from '../shared/models/user';
 
 
 @Component({
@@ -20,11 +21,13 @@ export class MispartidasComponent implements OnInit {
   faTrashAlt = faTrashAlt;
   faEdit = faEdit;
   isLoading = false;
+  user : any;
 
   constructor(private authService : AuthService, private gameService : CrudGamesService,
      private notifier : NotifierService, private router: Router) { }
 
   ngOnInit(): void {
+    this.user = this.authService.userData();
     this.idUser = this.authService.userData().uid;
     this.readAllGamesUser();
   }
@@ -56,6 +59,15 @@ export class MispartidasComponent implements OnInit {
 
   editPartida(idGame : any){
     this.router.navigate(["editGame/" + idGame]);
+  }
+
+  back(){
+    if(this.authService.isLoggedIn()){
+      this.user = this.authService.userData();
+      this.router.navigate(['home/'+this.user.uid]);
+    }else{
+      this.router.navigate(['home']);
+    }
   }
 
 }
