@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
         icon: faGithub
       },
       {
-        link: "www.linkedin.com/in/davidarreazagil",
+        link: "https://www.linkedin.com/in/davidarreazagil/",
         title: "Mi LinkedIn",
         icon: faLinkedin
       },

@@ -83,13 +83,13 @@ export class ContentmainComponent implements OnInit {
     });
   }
 
-  filtroPuzzle(){
+  filtroCartas(){
     this.gameService.readAllGames().subscribe(data => {
       this.misGames = [];
       data.forEach((doc : any) => {
         let newGame: Game = doc.data();
         newGame.id = doc.id;
-        if(newGame.categoria == "Puzzle"){
+        if(newGame.categoria == "Cartas"){
           this.misGames.push(newGame);
         }
       })
