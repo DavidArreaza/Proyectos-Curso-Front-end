@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
         icon: faLinkedin
       },
       {
-        link: "https://drive.google.com/file/d/1tkKstxCr5RdLfJyGDVwhf7rlIWYqDblB/view?usp=sharing",
+        link: "https://drive.google.com/file/d/11HdFwNLJGzYFqfhKjs5-iH3PVlSileEM/view?usp=sharing",
         title: "Currículum Vitae",
         icon: faIdCard
       }
