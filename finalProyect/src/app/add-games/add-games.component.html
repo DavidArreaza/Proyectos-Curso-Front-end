@@ -6,8 +6,9 @@
       <h1 class="mt-2" *ngIf="isEdit == true">Editar partida</h1>
       <div class="col-lg-6 col-sm-12 mt-4 me-4">
         <div class="form-floating mb-3">
-          <input type="text"  class="form-control" id="floatingInputTitulo" formControlName="titulo" placeholder="Parchís"/>
+          <input [ngClass]="{'is-invalid': f.titulo.errors}" type="text"  class="form-control" id="floatingInputTitulo" formControlName="titulo" placeholder="Parchís"/>
           <label for="floatingInputTitulo">Título del juego</label>
+          <div class="invalid-feedback">Estan mal los datos</div>
         </div>
 
         <div class="form-floating mb-3">
@@ -121,7 +122,7 @@
         <p *ngIf="isEdit == false">¿Desea crear esta partida?</p>
         <p *ngIf="isEdit == true">¿Desea aplicar los cambios realizados?</p>
         <div class="text-end">
-          <button type="button" class="btn btn-success me-2" (click)="saveGame()" *ngIf="isEdit == false"> Aceptar</button>
+          <button type="button" class="btn btn-success me-2" (click)="saveGame()" *ngIf="isEdit == false" data-bs-dismiss="modal"> Aceptar</button>
           <button type="button" class="btn btn-success me-2" (click)="updateGame()" *ngIf="isEdit == true">Aceptar</button>
           <button type="button" class="btn btn-warning me-2" data-bs-dismiss="modal">Cancelar</button>
         </div>

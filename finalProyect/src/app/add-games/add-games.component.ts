@@ -38,9 +38,9 @@ export class AddGamesComponent implements OnInit {
       
       this.gameForm = this.fb.group({
         idUser: [this.uid],
-        titulo: ["", Validators.required],
+        titulo: ["", Validators.required, Validators.minLength(4)],
         descripcion: ["", Validators.required],
-        jugadores: ["", Validators.required],
+        jugadores: ["", Validators.required, Validators.min(2)],
         categoria: ["", Validators.required],
         dificultad: ["", Validators.required],
         duracion: ["", Validators.required],
@@ -59,7 +59,6 @@ export class AddGamesComponent implements OnInit {
           this.gameForm.patchValue(this.miGame);
         })
       }
-      
   }
 
   ngOnInit(): void {
@@ -74,8 +73,7 @@ export class AddGamesComponent implements OnInit {
   saveGame(){
 
     if(this.gameForm.invalid){
-      console.error("No es valido");
-      console.log(this.gameForm.value)
+      this.notifier.notify('error', 'Complete el formulario correctamente');
       return;
     }
     
