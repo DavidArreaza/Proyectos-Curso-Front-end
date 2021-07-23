@@ -11,9 +11,6 @@ import { AuthService } from '../shared/services/auth.service';
 export class BarranavComponent implements OnInit {
 
   user : any;
-  name = '';
-  nick : any;
-  uid = '';
   pulsado = false;
   logueado = false;
 
@@ -25,9 +22,6 @@ export class BarranavComponent implements OnInit {
     if(this.authService.isLoggedIn()){
       this.user = this.authService.userData();
       this.router.navigate(['home/'+this.user.uid]);
-      this.uid = this.authService.userData().uid;
-      this.name = this.authService.userData().displayName;
-      this.nick = this.authService.userData().nick;
       this.logueado = true;
     }else{
       this.router.navigate(['home']);
@@ -43,22 +37,13 @@ export class BarranavComponent implements OnInit {
     })
   }
 
-  esPulsado(){
-    if(!this.pulsado){
-      this.pulsado = true;
-    }else{
-      this.pulsado = false;
-    }
-    console.log(this.pulsado); 
-  }
-
   logOut(){
     this.logueado = false;
     this.authService.signOut();
   }
 
   openEdit(){
-    this.router.navigate(["edit/"+this.uid]);
+    this.router.navigate(["edit/"+this.user.uid]);
   }
 
 }

@@ -1,10 +1,6 @@
 
 <nav class="navbar navbar-expand-sm justify-content-between">
   <div class="container-fluid">
-    <!--<button class="btn btn-outline-dark" (click)="esPulsado()">☰</button>
-    <div class="menulateral" *ngIf="pulsado == true">
-      <menulateral></menulateral>
-    </div>-->
     <div class="titulo">
       <span id="titulo" class="navbar-brand">
       <img id="img" src="../../assets/img/logo2.PNG">
@@ -17,7 +13,7 @@
       </button>
 
       <button *ngIf="logueado == true" class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src={{user.photoURL}} width="25" height="25" class="rounded-circle me-1"/>
+        <img [src]="user.photoURL" width="25" height="25" class="rounded-circle me-1"/>
         {{user.displayName}}
       </button>
 
