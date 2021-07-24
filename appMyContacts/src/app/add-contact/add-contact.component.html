@@ -4,7 +4,10 @@
   <div class="row justify-content-center">
 
       <div class="col-md-5 col-xl-5 border text-center">
-        <img *ngIf="isEdit" [src]="contact.img" class="img">
+        <div *ngIf="isEdit">
+          <img *ngIf="contact.img" [src]="contact.img" class="img">
+          <img *ngIf="!contact.img" src="../../assets/img/user.png" class="img">
+        </div>
         <div *ngIf="!isEdit">
           <img *ngIf="foto == false" src="../..//assets/img/user.png">
           <img *ngIf="foto == true" [src]="downloadURL | async" class="img-thumbnail" alt="Imagen" />
@@ -60,14 +63,33 @@
 
         </div>
         <div *ngIf="!isEdit">
-          <button (click)="crearContact()" type="submit" class="btn btn-primary me-2">Guardar</button>
+          <button type="submit" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#aceptarModal">Guardar</button>
           <button (click)="cancelar()" type="submit" class="btn btn-danger me-2">Cancelar</button>
         </div>
         <div *ngIf="isEdit">
-          <button (click)="actualizarContact()" type="submit" class="btn btn-primary me-2">Actualizar</button>
+          <button type="submit" class="btn btn-primary me-2">Actualizar</button>
           <button (click)="cancelar()" type="submit" class="btn btn-danger me-2">Cancelar</button>
         </div>
       </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="aceptarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Guardar</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div *ngIf="!isEdit" class="modal-body">El contacto será guardado</div>
+      <div *ngIf="isEdit" class="modal-body">El contacto será actualizado</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button *ngIf="!isEdit" type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="crearContact()">Guardar</button>
+        <button *ngIf="isEdit" type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="actualizarContact()">Actualizar</button>
+      </div>
+    </div>
   </div>
 </div>
 

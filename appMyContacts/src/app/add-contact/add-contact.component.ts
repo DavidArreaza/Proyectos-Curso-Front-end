@@ -47,11 +47,9 @@ export class AddContactComponent implements OnInit {
         this.cForm.patchValue(this.contact);
       })
     }
-    
    }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   get f(){
     return this.cForm.controls;

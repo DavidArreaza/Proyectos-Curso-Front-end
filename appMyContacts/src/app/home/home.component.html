@@ -24,12 +24,6 @@
           </div>
 
         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start " id="menu">
-          <li class="nav-item">
-            <a href="#" class="nav-link align-middle px-0">
-                <fa-icon [icon]="faHome"></fa-icon>
-              <span class="ms-1 d-none d-sm-inline">Home</span>
-            </a>
-          </li>
           <li>
             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                 <fa-icon [icon]="faUserPlus"></fa-icon>
@@ -70,10 +64,8 @@
               </li>
             </ul>
           </li>
-
         </ul>
-        <hr />
-        
+        <hr/>
       </div>
     </div>
 
@@ -98,7 +90,7 @@
 
             <div class="p-2 flex-grow-1 bd-highlight text-center">
               <button (click)="editarContacat(contact.id)" class="btn btn-primary mx-2">Editar</button>
-              <button (click)="eliminarContacat(contact.id)" class="btn btn-danger mx-2">Eliminar</button>
+              <button class="btn btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#aceptarModal">Eliminar</button>
             </div>
 
           </div>
@@ -109,5 +101,22 @@
   </div>
 </div>
 
+
+<!-- Aceptar Modal -->
+<div *ngFor="let contact of misContacts" class="modal fade" id="aceptarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Eliminar</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">El contacto será eliminado</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-warning" (click)="eliminarContacat(contact.id)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <notifier-container></notifier-container>
