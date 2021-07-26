@@ -7,6 +7,7 @@ import { AuthGuard } from './shared/guard/auth.guard';
 import { EditperfilComponent } from './editperfil/editperfil.component';
 import { AddGamesComponent } from './add-games/add-games.component';
 import { MispartidasComponent } from './mispartidas/mispartidas.component';
+import { MessageComponent } from './message/message.component';
 
 const routes: Routes = [
   {path: 'home', component: ContentmainComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'detalles/:id', component: DetallesComponent},
   {path: 'add', component: AddGamesComponent, canActivate: [AuthGuard]},
   {path: 'editGame/:id', component: AddGamesComponent, canActivate: [AuthGuard]},
-  {path: 'games', component: MispartidasComponent, canActivate: [AuthGuard]}
+  {path: 'games', component: MispartidasComponent, canActivate: [AuthGuard]},
+  {path: 'msn', component: MessageComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

@@ -24,6 +24,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     EditperfilComponent,
     AddGamesComponent,
     MispartidasComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
