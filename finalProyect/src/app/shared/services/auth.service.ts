@@ -27,8 +27,7 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
-      nick: user.nick
+      emailVerified: user.emailVerified
     };
     return this.fireStore.doc(`users/${user.uid}`).set(userData, {
       merge: true,
