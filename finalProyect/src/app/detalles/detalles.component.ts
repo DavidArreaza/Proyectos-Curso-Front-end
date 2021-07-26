@@ -28,18 +28,20 @@ export class DetallesComponent implements OnInit {
   faMapPin = faMapPin;
   imgs : string[] = [];
   jugar = true;
+  logueado = true;
 
   constructor(private authService: AuthService, private gameService: CrudGamesService,
     private route : ActivatedRoute, private notifier : NotifierService, private router : Router) {}
 
   ngOnInit(): void {
-    this.idUser = this.authService.userData().uid;
     if(this.authService.isLoggedIn()){
       this.idGame = this.route.snapshot.paramMap.get('id') as string; //Id del juego
+      this.idUser = this.authService.userData().uid;
       this.readGame();
     }else{
       this.idGame = this.route.snapshot.paramMap.get('id') as string; //Id del juego
       this.readGame();
+      this.logueado = false;
     }
   }
 
@@ -83,6 +85,7 @@ export class DetallesComponent implements OnInit {
     }).catch(error => {
       this.notifier.notify('error', 'Error');
     });
+
   }
 
 }
