@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-5">
+        <!--<div class="spinner-border spinner-border-sm center-item" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>-->
+        <div *ngFor="let msn of misMsn" class="link-item d-flex align-items-center shadow p-3 mb-3 bg-body rounded" target="_blank">
+          <div class="left-item">
+            <img src="../../assets/img/envelope-solid.svg">
+          </div>
+          <div class="right-item mx-2">
+            <p>{{ msn.message }}</p>
+            <button type="button" class="btn btn-dark mx-2">Aceptar</button>
+            <button (click)="rechazar(msn.uid)" type="button" class="btn btn-danger mx-1">Rechazar</button>
+          </div>
+        </div>
+        <div class="d-grid gap-2">
+          <button (click)="back()" class="btn btn-dark right-item">Volver</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <notifier-container></notifier-container> 
+  
