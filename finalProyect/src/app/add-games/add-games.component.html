@@ -22,7 +22,7 @@
               <select class="form-select"id="floatingSelect"formControlName="categoria"aria-label="Floating label select example">
                 <option selected value="Estrategia">Estrategia</option>
                 <option value="Rol">Rol</option>
-                <option value="Puzzle">Tablero</option>
+                <option value="Tablero">Tablero</option>
                 <option value="Cartas">Cartas</option>
               </select>
               <label for="floatingSelect">Categoría</label>
@@ -123,7 +123,7 @@
         <p *ngIf="isEdit == true">¿Desea aplicar los cambios realizados?</p>
         <div class="text-end">
           <button type="button" class="btn btn-success me-2" (click)="saveGame()" *ngIf="isEdit == false" data-bs-dismiss="modal"> Aceptar</button>
-          <button type="button" class="btn btn-success me-2" (click)="updateGame()" *ngIf="isEdit == true">Aceptar</button>
+          <button type="button" class="btn btn-success me-2" (click)="updateGame()" *ngIf="isEdit == true" data-bs-dismiss="modal">Aceptar</button>
           <button type="button" class="btn btn-warning me-2" data-bs-dismiss="modal">Cancelar</button>
         </div>
       </div>
