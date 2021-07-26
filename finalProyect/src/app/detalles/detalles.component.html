@@ -65,12 +65,32 @@
 
       <div class="row justify-content-center mt-3">
         <div class="col-6 text-center d-grid gap-2 mb-3">
-          <button type="button" class="btn btn-success">Jugar</button>
+          <button *ngIf="jugar == true" type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#aceptarModal">Jugar</button>
         </div>
       </div>
-
     </div>
-
   </div>
+
+
+  <!-- Aceptar Modal -->
+<div class="modal fade" id="aceptarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Jugar</h3>
+        <button type="button" id="modalClose"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Quieres unirte esta partida?</p>
+        <div class="text-end">
+          <button type="button" class="btn btn-success me-2" (click)="sendMsn()" data-bs-dismiss="modal"> Aceptar</button>
+          <button type="button" class="btn btn-warning me-2" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<notifier-container></notifier-container>
 
 
