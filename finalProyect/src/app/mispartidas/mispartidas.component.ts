@@ -5,14 +5,13 @@ import { AuthService } from '../shared/services/auth.service';
 import { CrudGamesService } from '../shared/services/crud-games.service';
 import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
-import { User } from '../shared/models/user';
-
 
 @Component({
   selector: 'app-mispartidas',
   templateUrl: './mispartidas.component.html',
   styleUrls: ['./mispartidas.component.css']
 })
+
 export class MispartidasComponent implements OnInit {
 
   miGame : any;
@@ -43,7 +42,6 @@ export class MispartidasComponent implements OnInit {
           this.misGames.push(newGame);
         }
       })
-      //console.log(this.misGames)
       this.isLoading = false;
     })
   }
