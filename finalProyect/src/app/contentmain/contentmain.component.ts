@@ -16,6 +16,7 @@ export class ContentmainComponent implements OnInit {
   game : any;
   misGames: Array<Game> = [];
   filter = '';
+
   showFiller = false;
   isLoading = false;
   isOpen = false;
@@ -25,12 +26,10 @@ export class ContentmainComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit(): void {
-
     if(this.authService.isLoggedIn()){
       this.user = this.authService.userData();
       this.router.navigate(['home/'+this.user.uid]);
     }
-    
     this.loadAllGames();
   }
 
@@ -131,8 +130,6 @@ export class ContentmainComponent implements OnInit {
         this.loadAllGames();
       }
     });
-    
-
   }
 
 }
