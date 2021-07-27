@@ -2,12 +2,12 @@
 <nav class="navbar navbar-expand-sm justify-content-between">
   <div class="container-fluid">
     <div class="titulo">
-      <span id="titulo" class="navbar-brand item-center">
+      <span id="titulo" class="navbar-brand">
       <img id="img" src="../../assets/img/logo2.PNG">
       </span>
     </div>
 
-    <div class="dropdown">
+    <div class="dropdown ms-1">
       <button *ngIf="logueado == false" class="btn btn-success" (click)="login()" title="Acceder">
         <img class="google" src="../../assets/img/google.svg">
         <img class="menu" src="../../assets/img/ellipsis-v-solid.svg">
@@ -16,10 +16,11 @@
 
       <button *ngIf="logueado == true" class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
         <img [src]="user.photoURL" width="25" height="25" class="rounded-circle me-1"/>
-        {{user.displayName}}
+        <p>{{user.displayName}}</p>
       </button>
 
-      <ul *ngIf="logueado == true" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <ul *ngIf="logueado == true" class="dropdown-menu dropdown-menu-end ms-1" aria-labelledby="dropdownMenuLink">
+        <li><p class="dropdown-item name">{{user.displayName}}</p></li>
         <li><a class="dropdown-item" routerLink="/add">Crear partida</a></li>
         <li><a class="dropdown-item" routerLink="/games">Mis partidas</a></li>
         <li>

@@ -12,7 +12,7 @@
 
 .titulo{
   /*margin-left: 40%;*/
-  position: absolute;
+  position: relative;
   left: 50%;
   transform: translatex(-50%);
 }
@@ -35,6 +35,10 @@ p{
   display: inline;
 }
 
+.name{
+  display: none;
+}
+
 @media (max-width: 700px){
   .google{
     display:  none;
@@ -47,6 +51,16 @@ p{
   }
 
   p{
+    display: none;
+  }
+
+  .name{
+    display: inline;
+  }
+}
+
+@media (max-width: 400px){
+  .rounded-circle{
     display: none;
   }
 }
