@@ -20,15 +20,17 @@ export class DetallesComponent implements OnInit {
   idUser : string = '';
   owner : any;
   miGame : any;
+  imgs : string[] = [];
+
+  jugar = true;
+  logueado = true;
+
   faUser = faUser;
   faCalendarDay = faCalendarDay;
   faStopwatch = faStopwatch;
   faTachometerAlt = faTachometerAlt;
   faIndent = faIndent;
   faMapPin = faMapPin;
-  imgs : string[] = [];
-  jugar = true;
-  logueado = true;
 
   constructor(private authService: AuthService, private gameService: CrudGamesService,
     private route : ActivatedRoute, private notifier : NotifierService, private router : Router) {}
@@ -70,13 +72,12 @@ export class DetallesComponent implements OnInit {
   }
 
   sendMsn(){
-
     const msn : Msn = {
       idUserGame : this.owner.uid, //Id del dueño del juego
       idUserAdd : this.authService.userData().uid,//Id del usuario conectado
       idGame : this.miGame.id,
       nameGame : this.miGame.titulo,
-      message : (this.authService.userData().displayName + ' quiere uniser a tu partida')
+      message : (this.authService.userData().displayName + ' quiere unirse a tu partida')
     }
 
     this.gameService.createMsn(msn).then(success =>{
@@ -85,7 +86,6 @@ export class DetallesComponent implements OnInit {
     }).catch(error => {
       this.notifier.notify('error', 'Error');
     });
-
   }
 
 }
