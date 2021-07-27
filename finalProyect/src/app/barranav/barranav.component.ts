@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { NavigationEnd, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Msn } from '../shared/models/msn';
 import { AuthService } from '../shared/services/auth.service';
 import { CrudGamesService } from '../shared/services/crud-games.service';
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'barranav',
@@ -13,10 +13,13 @@ import { CrudGamesService } from '../shared/services/crud-games.service';
 export class BarranavComponent implements OnInit {
 
   user : any;
-  pulsado = false;
-  logueado = false;
   misMsn : Array<Msn> = [];
   contador = 0;
+  
+  pulsado = false;
+  logueado = false;
+
+  faEllipsisV = faEllipsisV;
 
   constructor(private gameService: CrudGamesService, private authService: AuthService, private router: Router) {}
 
@@ -56,7 +59,7 @@ export class BarranavComponent implements OnInit {
       data.forEach((doc : any) => {
         let newMsn: Msn = doc.data();
         newMsn.uid = doc.id;
-        if(newMsn.idUserAdd != this.user.uid){
+        if(newMsn.idUserGame == this.user.uid){
           this.misMsn.push(newMsn);
           this.contador = this.misMsn.length;
         }

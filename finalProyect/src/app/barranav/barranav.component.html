@@ -2,14 +2,16 @@
 <nav class="navbar navbar-expand-sm justify-content-between">
   <div class="container-fluid">
     <div class="titulo">
-      <span id="titulo" class="navbar-brand">
+      <span id="titulo" class="navbar-brand item-center">
       <img id="img" src="../../assets/img/logo2.PNG">
       </span>
     </div>
 
     <div class="dropdown">
-      <button *ngIf="logueado == false" class="btn btn-success" (click)="login()">
-        <img class="google" src="../../assets/img/google.svg">Acceder
+      <button *ngIf="logueado == false" class="btn btn-success" (click)="login()" title="Acceder">
+        <img class="google" src="../../assets/img/google.svg">
+        <img class="menu" src="../../assets/img/ellipsis-v-solid.svg">
+        <p>Acceder</p>
       </button>
 
       <button *ngIf="logueado == true" class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
