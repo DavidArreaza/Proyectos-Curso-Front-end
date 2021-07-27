@@ -32,7 +32,7 @@ export class MessageComponent implements OnInit {
       data.forEach((doc : any) => {
         let newMsn: Msn = doc.data();
         newMsn.uid = doc.id;
-        if(newMsn.idUserAdd != this.user.uid){
+        if(newMsn.idUserGame == this.user.uid){
           this.misMsn.push(newMsn);
         }
       })
