@@ -27,9 +27,8 @@ export class EditperfilComponent implements OnInit {
   constructor(private authService : AuthService, private gameService : CrudGamesService,
     private fb: FormBuilder, private notifier : NotifierService, private route: ActivatedRoute, private router: Router) {
 
-      //this.user = this.authService.userData();
       this.idUserGame = this.route.snapshot.paramMap.get('id') as string;
-     }
+  }
 
   ngOnInit(): void {
     this.readOwner(this.idUserGame);
