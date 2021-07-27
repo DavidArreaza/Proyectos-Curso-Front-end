@@ -17,6 +17,10 @@
   transform: translatex(-50%);
 }
 
+.titulo:hover{
+  cursor: pointer;
+}
+
 #img{
   height: 35px;
 }

@@ -67,4 +67,12 @@ export class BarranavComponent implements OnInit {
     })
   }
 
+  backHome(){
+    if(this.authService.isLoggedIn()){
+      this.user = this.authService.userData();
+      this.router.navigate(['home/'+this.user.uid]);
+    }else{
+      this.router.navigate(['home']);
+    }
+  }
 }
