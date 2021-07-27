@@ -17,10 +17,12 @@ export class MispartidasComponent implements OnInit {
   miGame : any;
   idUser = '';
   misGames: Array<Game> = [];
+  user : any;
+
+  isLoading = false;
+
   faTrashAlt = faTrashAlt;
   faEdit = faEdit;
-  isLoading = false;
-  user : any;
 
   constructor(private authService : AuthService, private gameService : CrudGamesService,
      private notifier : NotifierService, private router: Router) { }

@@ -39,9 +39,9 @@ export class AddGamesComponent implements OnInit {
       
       this.uid = this.authService.userData().uid;
       const date = new Date();
-      const mes = date.getMonth() + 1
-      this.fecha = date.getFullYear() + '-' + mes + '-' + date.getDate();
-      console.log(this.fecha)
+      const mes = date.getMonth() + 1;
+      this.fecha = date.getFullYear() + '-0' + mes + '-' + date.getDate();
+
       
       this.gameForm = this.fb.group({
         idUser: [this.uid],
