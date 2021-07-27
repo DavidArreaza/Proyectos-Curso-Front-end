@@ -30,13 +30,13 @@
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6 mt-1">
             <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="floatingInputNumero" formControlName="jugadores" placeholder="Numero"/>
+              <input type="number" class="form-control" id="floatingInputNumero" formControlName="jugadores" min="1" placeholder="Jugadores"/>
               <label for="floatingInputNumero">Número de jugadores</label>
             </div>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6 mt-1">
             <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="floatingInputDuracion" formControlName="duracion"placeholder="Duracion"/>
+              <input type="number" class="form-control" id="floatingInputDuracion" formControlName="duracion" min="1" placeholder="Duracion"/>
               <label for="floatingInputDuracion">Duración (min)</label>
             </div>
           </div>
@@ -63,7 +63,7 @@
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6 mt-1">
             <div class="form-floating mb-3">
-              <input type="date" class="form-control" id="floatingInputFecha" formControlName="date" placeholder="Fecha"/>
+              <input type="date" class="form-control" id="floatingInputFecha" formControlName="date" min="{{fecha}}" placeholder="Fecha"/>
               <label for="floatingInputFecha">Fecha de la partida</label>
             </div>
           </div>

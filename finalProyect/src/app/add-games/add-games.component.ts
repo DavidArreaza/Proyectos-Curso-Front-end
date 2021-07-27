@@ -20,21 +20,28 @@ export class AddGamesComponent implements OnInit {
 
   
   gameForm : FormGroup;
-  faArrowLeft = faArrowLeft;
-  uploadPercent: Observable<any> | undefined;
-  downloadURL: Observable<string> | undefined;
-  downloadURLImg2: Observable<string> | undefined;
-  percent : any;
   uid : string = '';
   Ciudades : any = listaCiudades;
   idGame = '';
   isEdit = false;
   miGame : any;
+  fecha : any;
+  percent : any;
+
+  uploadPercent: Observable<any> | undefined;
+  downloadURL: Observable<string> | undefined;
+  downloadURLImg2: Observable<string> | undefined;
+
+  faArrowLeft = faArrowLeft;
 
   constructor(private fb: FormBuilder, private gameService: CrudGamesService, private router: Router, private authService: AuthService,
     private route: ActivatedRoute, private storage : AngularFireStorage, private notifier: NotifierService) {
       
       this.uid = this.authService.userData().uid;
+      const date = new Date();
+      const mes = date.getMonth() + 1
+      this.fecha = date.getFullYear() + '-' + mes + '-' + date.getDate();
+      console.log(this.fecha)
       
       this.gameForm = this.fb.group({
         idUser: [this.uid],
@@ -71,7 +78,6 @@ export class AddGamesComponent implements OnInit {
   }
 
   saveGame(){
-
     if(this.gameForm.invalid){
       this.notifier.notify('error', 'Complete el formulario correctamente');
       return;
@@ -108,7 +114,6 @@ export class AddGamesComponent implements OnInit {
   }
 
   uploadFileImg2(event: any) {
-
     const file = event.target.files[0];
     const filePath = Date.now() + file.name;
     const fileRef = this.storage.ref(filePath);
